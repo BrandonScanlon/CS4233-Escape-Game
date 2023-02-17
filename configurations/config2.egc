@@ -5,9 +5,7 @@ Players : Paul Steven
 
 Locations :
     (1, 1) CLEAR
-
-/*
-    (4, 4) clear Chris snail
+    (4, 4) clear Paul snail
     (5, 12) exit
 
 Piece Descriptors :
@@ -20,4 +18,3 @@ Piece Descriptors :
 Rules :
     SCORE 10
     TURN_LIMIT 20
-*/

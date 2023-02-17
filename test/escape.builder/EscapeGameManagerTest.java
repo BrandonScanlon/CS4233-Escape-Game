@@ -247,9 +247,27 @@ public class EscapeGameManagerTest {
   }
   /** EscapeGameManager addObserver() and removeObserver() throw exceptions before they can be tested **/
 
+  /** Game Board Tests **/
+  //******************************************************************
+  @Test /** 17 **/
+  void constructSquare2x2Board() {
+    EscapeGameManager egm = null;
+    try{
+      egm = new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+    } catch (Exception e){
+      fail("Exception from escape builder: " + e.getMessage());
+    }
+    assertNotNull(egm);
+    //assertEquals(); // TODO: Check if the number of tiles total exists in game instance
+  }
+
+
+
+
+
   /** Location Tests **/
   //***********************************************************************************************
-  @Test /** 17 **/
+  @Test /**  **/
   void checkGameWithOneClearLocation() {
     //TODO: Implement
   }

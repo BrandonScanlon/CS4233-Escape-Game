@@ -32,8 +32,7 @@ import java.util.*;
  * @see EscapeGameBuilder#makeGameManager()
  */
 @XmlRootElement
-public class EscapeGameInitializer
-{
+public class EscapeGameInitializer {
 	private CoordinateType coordinateType;
 
 	// Board items
@@ -48,8 +47,7 @@ public class EscapeGameInitializer
 	// Rule items
 	private RuleDescriptor[] rules;
 
-	public EscapeGameInitializer()
-	{
+	public EscapeGameInitializer() {
 		// Needed for JAXB
 	}
 
@@ -112,8 +110,7 @@ public class EscapeGameInitializer
 	/**
 	 * @param locationInitializers the locationInitializers to set
 	 */
-	public void setLocationInitializers(LocationInitializer ... locationInitializers)
-	{
+	public void setLocationInitializers(LocationInitializer ... locationInitializers) {
 		this.locationInitializers = locationInitializers;
 	}
 
@@ -153,8 +150,7 @@ public class EscapeGameInitializer
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return "EscapeGameInitializer [xMax=" + xMax + ", yMax=" + yMax
 				+ ", coordinateType=" + coordinateType + ", locationInitializers="
 				+ Arrays.toString(locationInitializers) + ", types="

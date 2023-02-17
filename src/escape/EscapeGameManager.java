@@ -63,9 +63,8 @@ public interface EscapeGameManager<C extends Coordinate>
 	 * @param observer
 	 * @return the observer
 	 */
-	default GameObserver addObserver(GameObserver observer)
-	{
-	    throw new EscapeException("Not implemented");
+	default GameObserver addObserver(GameObserver observer) {
+		throw new EscapeException("Not implemented");
 	}
 	
 	/**

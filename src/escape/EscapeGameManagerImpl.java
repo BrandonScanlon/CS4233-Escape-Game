@@ -2,6 +2,7 @@ package escape;
 
 // Imports
 //**************************************
+import escape.builder.LocationInitializer;
 import escape.required.Coordinate;
 import escape.required.Coordinate.CoordinateType;
 
@@ -13,10 +14,24 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
   private int yMax;
   private String[] players;
   private CoordinateType coordinateType;
+  private LocationInitializer obstacleLocations[];
+  private GameBoard gameBoard;
 
-  // Constructor
+  // Constructors
   //**************************************
-  public EscapeGameManagerImpl(){}
+  public EscapeGameManagerImpl(int xMax, int yMax, String[] players, CoordinateType coordinateType, LocationInitializer obstacleLocations[]) {
+    this.xMax = xMax;
+    this.yMax = yMax;
+    this.players = players;
+    this.coordinateType = coordinateType;
+    this.obstacleLocations = obstacleLocations;
+
+    if(coordinateType == CoordinateType.SQUARE)
+      this.gameBoard = new SquareGameBoard(xMax, yMax, obstacleLocations);
+    else if(coordinateType == CoordinateType.HEX){
+      this.gameBoard = new HexGameBoard(xMax, yMax, obstacleLocations);
+    }
+  }
 
   // Methods
   //**************************************

@@ -33,21 +33,18 @@ import escape.required.EscapePiece.*;
  * MOVEABLE: NO
  * REQUIRED: NO 
  */
-public class LocationInitializer
-{
+public class LocationInitializer {
 	public int x, y;
 	public LocationType locationType;
 	public String player;
 	public PieceName pieceName;
 	
-	public LocationInitializer() 
-	{
+	public LocationInitializer() {
 	    // needed for JAXB unmarshalling
 	}
 	
     public LocationInitializer(int x, int y, LocationType locationType,
-        String player, PieceName pieceName)
-    {
+        String player, PieceName pieceName) {
     	this.x = x;
         this.y = y;
         this.locationType = locationType;
@@ -59,8 +56,7 @@ public class LocationInitializer
      * @see java.lang.Object#toString()
      */
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "LocationInitializer [x=" + x + ", y=" + y + ", locationType="
             + locationType + ", player=" + player + ", pieceName=" + pieceName + "]";
     }

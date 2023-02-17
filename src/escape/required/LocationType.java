@@ -19,7 +19,4 @@ package escape.required;
  * MOVEABLE: YES
  * REQUIRED: YES
  */
-public enum LocationType
-{
-	BLOCK, CLEAR, EXIT;
-}
+public enum LocationType {	BLOCK, CLEAR, EXIT; }

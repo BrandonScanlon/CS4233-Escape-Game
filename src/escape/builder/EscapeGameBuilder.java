@@ -14,9 +14,11 @@ package escape.builder;
 
 import econfig.*;
 import escape.*;
+import escape.required.LocationType;
 import org.antlr.v4.runtime.*;
 
 import javax.xml.bind.*;
+import javax.xml.stream.Location;
 import javax.xml.transform.stream.*;
 import java.io.*;
 
@@ -49,7 +51,8 @@ import java.io.*;
  * as possible to implement.
  */
 public class EscapeGameBuilder {
-    private final EscapeGameInitializer gameInitializer;;
+    private final EscapeGameInitializer gameInitializer;
+
     
     /**
      * The constructor takes a file that points to the Escape game
@@ -106,11 +109,12 @@ public class EscapeGameBuilder {
      * @return the game instance
      ***********************************************************************/
 	public EscapeGameManager makeGameManager() {
-		EscapeGameManagerImpl gameManager = new EscapeGameManagerImpl();
-		gameManager.setCoordinateType(gameInitializer.getCoordinateType());
-		gameManager.setxMax(gameInitializer.getxMax());
-		gameManager.setyMax(gameInitializer.getyMax());
-		gameManager.setPlayers(gameInitializer.getPlayers());
+		//Create and set the game manager
+		EscapeGameManagerImpl gameManager = new EscapeGameManagerImpl(gameInitializer.getxMax(), gameInitializer.getyMax(), gameInitializer.getPlayers(), gameInitializer.getCoordinateType(), gameInitializer.getLocationInitializers());
+
+
+
+
 		return gameManager;
 	}
 }

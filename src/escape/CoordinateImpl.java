@@ -14,6 +14,17 @@ private int y;
    this.y = (y == 0) ? 2147483647 : y;
   }
 
+  private static enum CoordinateType {
+    // Standard hex coordinates
+    // The distance from (0,0)->(-1, 2) is 2; (-1, 2)->(2, -2) is 4.
+    HEX,
+
+    // Standard squares where distance is measure as shortest combination of
+    // orthogonal and diagonal moves. Examples: (1,1)->(2,2) is distance 1,
+    // (1,2)->(3,5) is distance 3
+    SQUARE
+  };
+
   public int getRow() {
     return x;
   }
@@ -26,13 +37,7 @@ private int y;
     return type;
   }
 
-  public boolean equals(Object o) {
-    if (o == this) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  public boolean equals(Object o) { return (this == o); }
 
   public int distanceTo(Coordinate c) {
     return 0;
