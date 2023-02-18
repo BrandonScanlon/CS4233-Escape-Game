@@ -1,11 +1,16 @@
 package escape;
 
+// Import
+//********************************************************************
 import escape.builder.LocationInitializer;
+import escape.required.Coordinate.CoordinateType;
 import escape.required.LocationType;
 
-public class HexGameBoard implements GameBoard{
+public class HexGameBoard implements GameBoard {
   // Global Variables
   //******************************************************************
+
+  private CoordinateType gameBoardType = CoordinateType.HEX;
   private final int rows;
   private final int cols;
   private LocationInitializer locationInitializer;
@@ -28,7 +33,7 @@ public class HexGameBoard implements GameBoard{
       for(int col = 0; col < this.cols; col++) {
 
         board[row][col] = this.locationInitializer = new LocationInitializer(row, col, LocationType.CLEAR, null, null);
-        System.out.println(board[row][col]);
+        //System.out.println(board[row][col]);
       }
     }
   }
@@ -44,6 +49,6 @@ public class HexGameBoard implements GameBoard{
     return board[row][col];
   }
 
-
+  public CoordinateType getGameBoardType() { return gameBoardType; }
 
 }

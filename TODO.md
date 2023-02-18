@@ -30,5 +30,20 @@
 |**---**| **-- TESTS FOR ESCAPE GAME MANAGER METHOD EXCEPTIONS --**                  |**---------------------------------------------------------**|
 |   15  | Build game manager requests to move from (1,4) to (32,11)                  | Game manager method request, exception                      |
 |   16  | Build game manager requests to get a piece at (1,4)                        | Game manager method request, exception                      |
-|**---**| **-------------------- FUTURE TESTS --------------------**                 |**---------------------------------------------------------**|
-|   17  | Build game with one CLEAR [default] location                               | Create game object                                          |
+|**---**| **-------------------- TESTS FOR GAME BOARDS --------------------**        |**---------------------------------------------------------**|
+|   17  | Build a SQUARE game board                                                  | Create game board object                                    |
+|   18  | Build a HEX game board                                                     | Create game board object                                    |
+|   19  | Build SQUARE board with all CLEAR location                                 | Create game board object                                    |
+|   20  | Build HEX board with all CLEAR location                                    | Create game board object                                    |
+|   21  |                                                   |                                     |
+|   22  |                                                   |                                     |
+|   23  |                                                   |                                     |
+|   24  |                                                   |                                     |
+|   25  |                                                   |                                     |
+|   26  |                                                   |                                     |
+|   27  |                                                   |                                     |
+|   28  |                                                   |                                     |
+|   29  |                                                   |                                     |
+|   30  |                                                   |                                     |
+
+|     | Build game with one CLEAR [default] location                               | Create game object                                          |

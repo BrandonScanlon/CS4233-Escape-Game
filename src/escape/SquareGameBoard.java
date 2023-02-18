@@ -1,11 +1,14 @@
 package escape;
 
 import escape.builder.LocationInitializer;
+import escape.required.Coordinate.CoordinateType;
 import escape.required.LocationType;
 
-public class SquareGameBoard implements GameBoard{
+public class SquareGameBoard implements GameBoard {
   // Global Variables
   //******************************************************************
+  private GameBoard gameBoard;
+  private CoordinateType gameBoardType = CoordinateType.SQUARE;
   private int rows;
   private int cols;
   private LocationInitializer locationInitializer;
@@ -28,7 +31,7 @@ public class SquareGameBoard implements GameBoard{
       for(int col = 0; col < cols; col++) {
 
         board[row][col] = locationInitializer = new LocationInitializer(row, col, LocationType.CLEAR, null, null);
-        System.out.println(board[row][col]);
+        //System.out.println(board[row][col]);
       }
     }
   }
@@ -44,6 +47,6 @@ public class SquareGameBoard implements GameBoard{
     return board[row][col];
   }
 
-
+  public CoordinateType getGameBoardType() { return gameBoardType; }
 
 }

@@ -1,6 +1,6 @@
 Coordinate type: HEX
-xMax : 10000000
-yMax : 34532215
+xMax : 100
+yMax : 345
 Players : Paul Steven
 
 Locations :
@@ -10,9 +10,6 @@ Locations :
 
 Piece Descriptors :
     SNAIL omni [distance 1]
-    DOG linear [distance 5]
-    HORSE diagonal [distance 7, jump]
-    bird linear [fly, distance 5]
     frog omni [distance 3, unblock]
 
 Rules :

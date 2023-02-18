@@ -15,7 +15,7 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
   private String[] players;
   private CoordinateType coordinateType;
   private LocationInitializer obstacleLocations[];
-  private GameBoard gameBoard;
+  private GameBoardImpl gameBoard;
 
   // Constructors
   //**************************************
@@ -26,10 +26,12 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
     this.coordinateType = coordinateType;
     this.obstacleLocations = obstacleLocations;
 
-    if(coordinateType == CoordinateType.SQUARE)
-      this.gameBoard = new SquareGameBoard(xMax, yMax, obstacleLocations);
-    else if(coordinateType == CoordinateType.HEX){
-      this.gameBoard = new HexGameBoard(xMax, yMax, obstacleLocations);
+    if(coordinateType == CoordinateType.SQUARE) {
+      SquareGameBoard squareGameBoard = new SquareGameBoard(xMax, yMax, obstacleLocations);
+      this.gameBoard = new GameBoardImpl(squareGameBoard);
+    } else if(coordinateType == CoordinateType.HEX){
+      HexGameBoard hexGameBoard = new HexGameBoard(xMax, yMax, obstacleLocations);
+      this.gameBoard = new GameBoardImpl(hexGameBoard);
     }
   }
 
@@ -58,6 +60,8 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
   public int getyMax() { return yMax; }
 
   public String[] getPlayers(){ return players; }
+
+  public GameBoardImpl getGameBoard() { return gameBoard; }
 
   public void getLocation() {
     // TODO Auto-generated method stub

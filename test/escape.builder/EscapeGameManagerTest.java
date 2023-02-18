@@ -5,6 +5,7 @@ package escape.builder;
 import escape.*;
 import escape.required.Coordinate;
 import escape.required.EscapeException;
+import escape.required.LocationType;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -245,25 +246,80 @@ public class EscapeGameManagerTest {
       finalEgm.getPieceAt(coordA);
     });
   }
-  /** EscapeGameManager addObserver() and removeObserver() throw exceptions before they can be tested **/
 
   /** Game Board Tests **/
   //******************************************************************
   @Test /** 17 **/
-  void constructSquare2x2Board() {
-    EscapeGameManager egm = null;
+  void checkSQUAREBoardType() {
+    EscapeGameManagerImpl egm = null;
     try{
-      egm = new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
-    //assertEquals(); // TODO: Check if the number of tiles total exists in game instance
+    System.out.println(egm.getGameBoard().getGameBoardType());
+    assertTrue(egm.getGameBoard().getGameBoardType() == Coordinate.CoordinateType.SQUARE);
+  }
+  //******************************************************************
+  @Test /** 18 **/
+  void checkHEXBoardType() {
+    EscapeGameManagerImpl egm = null;
+    try{
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config2.egc").makeGameManager();
+    } catch (Exception e){
+      fail("Exception from escape builder: " + e.getMessage());
+    }
+    assertNotNull(egm);
+    System.out.println(egm.getGameBoard().getGameBoardType());
+    assertTrue(egm.getGameBoard().getGameBoardType() == Coordinate.CoordinateType.HEX);
+  }
+  //******************************************************************
+  @Test /** 19 **/
+  void checkSQUAREBoardAllCLEAR() {
+    EscapeGameManagerImpl egm = null;
+    try{
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+    } catch (Exception e){
+      fail("Exception from escape builder: " + e.getMessage());
+    }
+    assertNotNull(egm);
+
+    assertTrue(egm.getGameBoard().getGameBoardType() == Coordinate.CoordinateType.SQUARE);
+
+    System.out.println(egm.getGameBoard().getGameBoardType());
+    for(int row = 0; row < egm.getxMax(); row++){
+      for(int col = 0; col < egm.getyMax(); col++){
+        //System.out.println(egm.getGameBoard().getBoardLocation(row, col).locationType);
+        assertTrue(egm.getGameBoard().getBoardLocation(row, col).locationType.equals(LocationType.CLEAR));
+      }
+    }
+  }
+  //******************************************************************
+  @Test /** 20 **/
+  void checkHEXBoardAllCLEAR() {
+    EscapeGameManagerImpl egm = null;
+    try{
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config2.egc").makeGameManager();
+    } catch (Exception e){
+      fail("Exception from escape builder: " + e.getMessage());
+    }
+    assertNotNull(egm);
+
+    assertTrue(egm.getGameBoard().getGameBoardType() == Coordinate.CoordinateType.HEX);
+
+    System.out.println(egm.getGameBoard().getGameBoardType());
+    for(int row = 0; row < egm.getxMax(); row++){
+      for(int col = 0; col < egm.getyMax(); col++){
+        //System.out.println(egm.getGameBoard().getBoardLocation(row, col).locationType);
+        assertTrue(egm.getGameBoard().getBoardLocation(row, col).locationType.equals(LocationType.CLEAR));
+      }
+    }
   }
 
 
 
-
+/** EscapeGameManager addObserver() and removeObserver() throw exceptions before they can be tested **/
 
   /** Location Tests **/
   //***********************************************************************************************
