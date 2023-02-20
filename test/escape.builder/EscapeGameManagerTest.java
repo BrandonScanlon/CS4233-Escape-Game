@@ -418,81 +418,92 @@ public class EscapeGameManagerTest {
     assertEquals(10000, egm.getGameBoard().getRows());
   }
 
-  /********************** MOVEMENT TESTS **********************/
+  /********************** INVALID MOVEMENT TESTS **********************/
   //***************************************************************************************************************************
   @Test /** 25 **/
   void checkSQUAREMoveNullFromCoordinate() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config2.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config3.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
-    // Initialize a null coordinate and check if it can move
     CoordinateImpl coordA = null;
     CoordinateImpl coordB = egm.makeCoordinate(5, 5);
 
     GameStatusImpl status = new GameStatusImpl();
+    status.setValidMove(false);
 
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
   }
-  //******************************************************************
+  //***************************************************************************************************************************
   @Test /** 26 **/
   void checkSQUAREMoveToSameCoordinate() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config3.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
-    // Move Coordinate to same Coordinate
+    CoordinateImpl coordA = egm.makeCoordinate(5, 5);
+    CoordinateImpl coordB = egm.makeCoordinate(5, 5);
+
+    GameStatusImpl status = new GameStatusImpl();
+    status.setValidMove(false);
+
+    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
   }
-  //******************************************************************
+  //***************************************************************************************************************************
   @Test /** 27 **/
-  void checkSQUAREMoveNonExistantPieceFromCoordinate() {
+  void checkSQUAREMovePieceWithNoPlayer() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config3.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
-    // Move Coordinate with no piece or player
+    CoordinateImpl coordA = egm.makeCoordinate(5, 5);
+    CoordinateImpl coordB = egm.makeCoordinate(15, 15);
+
+    GameStatusImpl status = new GameStatusImpl();
+    status.setValidMove(false);
+
+    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
   }
-  //******************************************************************
+  //***************************************************************************************************************************
   @Test /** 28 **/
   void checkSQUAREMoveCoordinateOffBoard() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config3.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
-    // Move Coordinate to off the board
-  }
-  //******************************************************************
-  @Test /** 29 **/
-  void checkSQUAREMoveCoordinateToValidCoordinate() {
-    EscapeGameManagerImpl egm = null;
-    try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
-    } catch (Exception e){
-      fail("Exception from escape builder: " + e.getMessage());
-    }
-    assertNotNull(egm);
+    CoordinateImpl coordA = egm.makeCoordinate(5, 5);
+    CoordinateImpl coordB = egm.makeCoordinate(21, 21);
 
-    // Move Coordinate to a valid coordinate
+    GameStatusImpl status = new GameStatusImpl();
+    status.setValidMove(false);
+
+    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
   }
 
 
-  //******************************************************************
+
+  /********************** LINEAR MOVEMENT TESTS **********************/
+
+  /********************** ONMI MOVEMENT TESTS **********************/
+
+
+  //***************************************************************************************************************************
   @Test /**  **/
   void checkSQUAREMoveLINEAR() {
     EscapeGameManagerImpl egm = null;
@@ -504,18 +515,5 @@ public class EscapeGameManagerTest {
     assertNotNull(egm);
 
     assertTrue(egm.getGameBoard().getGameBoardType() == Coordinate.CoordinateType.SQUARE);
-
-
-
-  }
-
-
-/** EscapeGameManager addObserver() and removeObserver() throw exceptions before they can be tested **/
-
-  /** Location Tests **/
-  //***********************************************************************************************
-  @Test /**  **/
-  void checkGameWithOneClearLocation() {
-    //TODO: Implement
   }
 }

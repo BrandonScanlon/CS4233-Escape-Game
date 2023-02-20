@@ -19,7 +19,7 @@ public class GameBoardImpl {
   //**************************************
   public void setBoardLocation(int col, int row, LocationInitializer locationInitializer) { gameBoard.setBoardLocation(row, col, locationInitializer); }
 
-  public CoordinateImpl getBoardLocation(int col, int row) { return gameBoard.getBoardLocation(col, row); }
+  public CoordinateImpl getBoardLocation(int row, int col) { return gameBoard.getBoardLocation(col, row); }
 
   public CoordinateType getGameBoardType() { return gameBoard.getGameBoardType(); }
 

@@ -54,8 +54,9 @@ public class CoordinateImpl implements Coordinate {
   }
 
   public int distanceTo(Coordinate c) {
-    int deltaR = this.row - c.getRow();
-    int deltaC = this.col - c.getColumn();
+    int deltaR = Math.abs(this.row - c.getRow());
+    int deltaC = Math.abs(this.col - c.getColumn());
+
     return deltaR + deltaC;
   }
 
