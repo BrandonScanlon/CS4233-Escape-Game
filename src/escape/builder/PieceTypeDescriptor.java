@@ -28,9 +28,8 @@ import java.util.*;
  * MOVEABLE: YES
  * REQUIRED: NO
  */
-public class PieceTypeDescriptor
-{
-	private PieceName pieceName;
+public class PieceTypeDescriptor {
+	  private PieceName pieceName;
     private MovementPattern movementPattern;
     private PieceAttribute[] attributes;
     
@@ -84,8 +83,7 @@ public class PieceTypeDescriptor
 	 * @param id the attribute ID
 	 * @return the attribute or null if the piece has none
 	 */
-	public PieceAttribute getAttribute(PieceAttributeID id)
-	{
+	public PieceAttribute getAttribute(PieceAttributeID id) {
 		Optional<PieceAttribute> attr = 
 			Arrays.stream(attributes)
 				.filter(a -> a.getId().equals(id))
@@ -97,8 +95,7 @@ public class PieceTypeDescriptor
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return "PieceTypeInitializer [pieceName=" + pieceName + ", movementPattern="
 		    + movementPattern + ", attributes=" + Arrays.toString(attributes) + "]";
 	}

@@ -45,8 +45,8 @@ public class LocationInitializer {
 	
     public LocationInitializer(int x, int y, LocationType locationType,
         String player, PieceName pieceName) {
-    	this.x = x;
-        this.y = y;
+    	this.x = y;
+        this.x = y;
         this.locationType = locationType;
         this.player = player;
         this.pieceName = pieceName;

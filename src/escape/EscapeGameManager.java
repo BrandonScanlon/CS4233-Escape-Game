@@ -22,18 +22,14 @@ import escape.required.*;
  * You may extend this interface for your internal use in another interface, but this is the 
  * only public interface that all clients will use.
  */
-public interface EscapeGameManager<C extends Coordinate>
-{
+public interface EscapeGameManager<C extends Coordinate> {
 	/**
 	 * Make the move in the current game.
 	 * @param from starting location
 	 * @param to ending location
 	 * @return true if the move was legal, false otherwise
 	 */
-	default GameStatus move(C from, C to)
-	{
-		throw new EscapeException("Not implemented");
-	}
+	default GameStatus move(C from, C to) { throw new EscapeException("Not implemented"); }
 	
 	/**
 	 * Return the piece located at the specified coordinate. If executing

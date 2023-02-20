@@ -47,9 +47,8 @@ public class EscapeGameInitializer {
 	// Rule items
 	private RuleDescriptor[] rules;
 
-	public EscapeGameInitializer() {
-		// Needed for JAXB
-	}
+	public EscapeGameInitializer() {} // Needed for JAXB
+
 
 	/**
 	 * @return the coordinateType
@@ -94,25 +93,17 @@ public class EscapeGameInitializer {
 	/**
 	 * @param yMax the yMax to set
 	 */
-	public void setyMax(int yMax)
-	{
-		this.yMax = yMax;
-	}
+	public void setyMax(int yMax) { this.yMax = yMax; }
 
 	/**
 	 * @return the locationInitializers
 	 */
-	public LocationInitializer[] getLocationInitializers()
-	{
-		return locationInitializers;
-	}
+	public LocationInitializer[] getLocationInitializers() { return locationInitializers; }
 
 	/**
 	 * @param locationInitializers the locationInitializers to set
 	 */
-	public void setLocationInitializers(LocationInitializer ... locationInitializers) {
-		this.locationInitializers = locationInitializers;
-	}
+	public void setLocationInitializers(LocationInitializer ... locationInitializers) { this.locationInitializers = locationInitializers; }
 
 	/**
 	 * @return the types

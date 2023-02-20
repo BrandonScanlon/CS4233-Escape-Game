@@ -4,6 +4,11 @@ import escape.required.Coordinate;
 import escape.required.GameStatus;
 
 public class GameStatusImpl implements GameStatus {
+  private MoveResult moveResult;
+  private CombatResult combatResult;
+  private boolean validMove;
+  private Coordinate finalLocation;
+
 
   /**
    * WIN:  Player that moved wins the game
@@ -21,12 +26,14 @@ public class GameStatusImpl implements GameStatus {
    */
   public static enum CombatResult { ATTACKER, DEFENDER, DRAW, NONE }
 
+  public void setValidMove(boolean validMove){ this.validMove = validMove; }
+
   /**
    * @return true if the move was a valid move, fals if not (an exception may have
    * been thown in some cases)
    */
   public boolean isValidMove(){
-    return false;
+   return validMove;
   }
 
   /**
@@ -36,18 +43,26 @@ public class GameStatusImpl implements GameStatus {
     return false;
   }
 
+  public void setMoveResult(MoveResult moveResult){ this.moveResult = moveResult; }
+
   /**
    * @return an indicator if the game ended and the state of win/loss
    */
-  public GameStatus.MoveResult getMoveResult(){
-    return null;
-  }
+  public MoveResult getMoveResult(){ return moveResult; }
+
+  public void setCombatResult(CombatResult combatResult){ this.combatResult = combatResult; }
+
+  public CombatResult getCombatResult(){ return combatResult; }
 
   /**
    * @return the location of the moving piece after the move if it is different
    * the destination (to) specified in the move();
    */
   public Coordinate finalLocation(){
-    return null;
+    System.out.println("Successfully Moved To:");
+    System.out.println(finalLocation.toString());
+    return finalLocation;
   }
+
+  public void setFinalLocation(Coordinate finalLocation){ this.finalLocation = finalLocation; }
 }

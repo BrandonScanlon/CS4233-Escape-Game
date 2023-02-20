@@ -11,6 +11,8 @@
  *******************************************************************************/
 package escape.required;
 
+import escape.GameStatusImpl;
+
 /**
  * This interface defines all of the information for a
  * client to understand the game state after a move
@@ -52,7 +54,7 @@ public interface GameStatus {
     /**
      * @return an indicator if the game ended and the state of win/loss
      */
-    MoveResult getMoveResult();
+    GameStatusImpl.MoveResult getMoveResult();
 
     /**
      * @return the location of the moving piece after the move if it is different

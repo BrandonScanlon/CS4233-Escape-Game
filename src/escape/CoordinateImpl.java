@@ -1,19 +1,29 @@
 package escape;
 
 import escape.required.Coordinate;
+import escape.required.EscapePiece.PieceName;
+import escape.required.LocationType;
+
 
 public class CoordinateImpl implements Coordinate {
+  // Fields
+  //**************************************
+  private LocationType locationType;
+  private String player;
+  private PieceName pieceName;
+  private int row;
+  private int col;
 
-private CoordinateType type;
-private int x;
-private int y;
 
-  public CoordinateImpl(/**CoordinateType type,**/ int x, int y) {
-    //this.type = type;
-   this.x = (x == 0) ? 2147483647 : x;
-   this.y = (y == 0) ? 2147483647 : y;
+  // Constructors
+  //**************************************
+  public CoordinateImpl(int col, int row) {
+    this.col = col;
+    this.row = row;
   }
 
+  // Enums
+  //**************************************
   private static enum CoordinateType {
     // Standard hex coordinates
     // The distance from (0,0)->(-1, 2) is 2; (-1, 2)->(2, -2) is 4.
@@ -25,21 +35,45 @@ private int y;
     SQUARE
   };
 
-  public int getRow() {
-    return x;
-  }
+  // Methods
+  //**************************************
+  public int getRow() { return row; }
 
-  public int getColumn() {
-    return y;
-  }
+  public void setRow(int row) { this.row = row; }
 
-  public CoordinateType getType() {
-    return type;
-  }
+  public int getColumn() { return col; }
 
-  public boolean equals(Object o) { return (this == o); }
+  public void setColumn(int col) { this.col = col; }
+
+  public boolean equals(CoordinateImpl coord) {
+    if(this.row == coord.row && this.col == coord.col && this.locationType == coord.locationType) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   public int distanceTo(Coordinate c) {
-    return 0;
+    int deltaR = this.row - c.getRow();
+    int deltaC = this.col - c.getColumn();
+    return deltaR + deltaC;
+  }
+
+  public void setLocationType(LocationType locationType) { this.locationType = locationType; }
+
+  public LocationType getLocationType() { return locationType; }
+
+  public void setPlayer(String player) { this.player = player; }
+
+  public String getPlayer() { return player; }
+
+  public void setPieceName(PieceName pieceName) { this.pieceName = pieceName; }
+
+  public PieceName getPieceName() { return pieceName; }
+
+  @Override
+  public String toString() {
+    return "CoordinateImpl [Row=" + row + ", Col=" + col
+        + ", locationType=" + locationType + "]";
   }
 }
