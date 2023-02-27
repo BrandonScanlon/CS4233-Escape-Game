@@ -52,6 +52,10 @@ public class LocationInitializer {
         this.pieceName = pieceName;
     }
 
+    public LocationType getLocationType() { return locationType; }
+
+    public String getPlayer() { return player; }
+
     /*
      * @see java.lang.Object#toString()
      */

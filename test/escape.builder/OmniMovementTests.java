@@ -3,10 +3,7 @@ package escape.builder;
 // Imports
 //*********************************
 import escape.*;
-import escape.required.Coordinate;
-import escape.required.EscapeException;
 import escape.required.EscapePiece.PieceName;
-import escape.required.LocationType;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 

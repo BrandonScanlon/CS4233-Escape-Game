@@ -50,7 +50,7 @@ public class HexGameBoard implements GameBoard {
 
   // Methods
   //******************************************************************
-  public void setBoardLocation(int col, int row, LocationInitializer locationInitializer) {
+  public void setBoardLocation(int row, int col, LocationInitializer locationInitializer) {
     board[col][row].setLocationType(locationInitializer.locationType);
   }
 

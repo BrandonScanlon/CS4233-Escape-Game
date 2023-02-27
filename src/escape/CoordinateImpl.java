@@ -17,9 +17,9 @@ public class CoordinateImpl implements Coordinate {
 
   // Constructors
   //**************************************
-  public CoordinateImpl(int col, int row) {
-    this.col = col;
+  public CoordinateImpl(int row, int col) {
     this.row = row;
+    this.col = col;
   }
 
   // Enums

@@ -17,9 +17,9 @@ public class GameBoardImpl {
 
   // Methods
   //**************************************
-  public void setBoardLocation(int col, int row, LocationInitializer locationInitializer) { gameBoard.setBoardLocation(row, col, locationInitializer); }
+  public void setBoardLocation(int row, int col, LocationInitializer locationInitializer) { gameBoard.setBoardLocation(row, col, locationInitializer); }
 
-  public CoordinateImpl getBoardLocation(int row, int col) { return gameBoard.getBoardLocation(col, row); }
+  public CoordinateImpl getBoardLocation(int row, int col) { return gameBoard.getBoardLocation(row, col); }
 
   public CoordinateType getGameBoardType() { return gameBoard.getGameBoardType(); }
 

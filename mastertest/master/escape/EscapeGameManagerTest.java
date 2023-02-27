@@ -57,7 +57,7 @@ public class EscapeGameManagerTest extends BaseTestMaster {
     void correctCoordinates() {
         startTest("Check coordinates", 5);
         Coordinate c = manager.makeCoordinate(2, 1);
-        assertEquals(0, c.getRow());
+        assertEquals(2, c.getRow());
         assertEquals(1, c.getColumn());
         markTestPassed();
     }

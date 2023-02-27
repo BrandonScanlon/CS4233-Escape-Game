@@ -15,20 +15,16 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
   // Fields
   //**************************************
   private int colMax;
-
   private int rowMax;
-
   private String[] players;
-
   private CoordinateType coordinateType;
-
   private LocationInitializer obstacleLocations[];
-
   private GameBoardImpl gameBoard;
-
   private PieceTypeDescriptor[] pieceTypeDescriptors;
-
   private int whosTurn = 0;
+  private int maxDistance = 0;
+  private int moves = 0;
+  private CoordinateImpl startingCoord;
 
   // Constructors
   //**************************************
@@ -94,12 +90,12 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
     return gameBoard;
   }
 
+  public EscapePieceImpl getPieceAt(CoordinateImpl coordinate) { return null; }
+
   /******************** MOVE ********************/
   public GameStatus move(Coordinate from, Coordinate to) {
     GameStatusImpl gameStatus = new GameStatusImpl();
     GameBoardImpl gameBoard = this.getGameBoard();
-
-    //System.out.println(pieceTypeDescriptors[0]);
 
     /******************** Check if valid move (immediate red flags) ********************/
     // Null Coordinates (Not sure if needed)
@@ -145,14 +141,18 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
           int deltaRow = to.getRow() - from.getRow();
           int deltaCol = to.getColumn() - from.getColumn();
           int distance = 0;
+          moves = 0;
+
+          maxDistance = descriptor.getAttribute(PieceAttributeID.DISTANCE).getValue();
+
           if(deltaRow == deltaCol && (movementPattern == MovementPattern.LINEAR || movementPattern == MovementPattern.DIAGONAL)) {
             distance = deltaRow;
           }
-          Move move = new Move(gameStatus, movementPattern, descriptor, players, whosTurn, tempGameBoard, newFrom, deltaCol, deltaRow);
-          if(distance == 0 && newFrom.distanceTo(to) <= descriptor.getAttribute(PieceAttributeID.DISTANCE).getValue()) {
+          Move move = new Move(gameStatus, movementPattern, descriptor, players, whosTurn, tempGameBoard, newFrom, deltaCol, deltaRow, moves);
+          if(distance == 0 && newFrom.distanceTo(to) <= maxDistance) {
             gameStatus = move.movePiece();
 
-          } else if(distance == deltaRow && distance <= descriptor.getAttribute(PieceAttributeID.DISTANCE).getValue()) {
+          } else if(distance == deltaRow && distance <= maxDistance) {
             gameStatus = move.movePiece();
           } else {
             gameStatus.setValidMove(false);
@@ -160,11 +160,14 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
           }
         }
       }
-        /******************** Send back the reponse ********************/
-        // Respond with appropriate Game Status
+        /******************** Send back the response ********************/
         if(!gameStatus.isValidMove()) {
           gameStatus.setMoveResult(GameStatusImpl.MoveResult.NONE);
           gameStatus.setCombatResult(GameStatusImpl.CombatResult.NONE);
+          newFrom = startingCoord;
+          return gameStatus;
+        } else if (moves > maxDistance) {
+          gameStatus.setValidMove(false);
           return gameStatus;
         } else {
           return gameStatus;
@@ -173,175 +176,6 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
     return gameStatus;
   }
 
-//            switch(movementPattern) {
-////*******************************************************************************************************************************
-//              case ORTHOGONAL:
-//                // Move by row or column only
-//                while(deltaRow != 0 || deltaCol != 0) {
-//                  /** Move Row **/
-//                  /** Move Row **/
-//                  if(deltaRow == deltaCol) {
-//                    if(deltaRow > 0) { // Move Up
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn()).setPieceName(descriptor.getPieceName());
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn()).setPlayer(players[whosTurn]);
-//                      newFrom.setRow(newFrom.getRow() + 1);
-//                      deltaRow--;
-//                    }
-//                    if(deltaRow < 0) { // Move Down
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() - 1, newFrom.getColumn()).setPieceName(descriptor.getPieceName());
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() - 1, newFrom.getColumn()).setPlayer(players[whosTurn]);
-//                      newFrom.setRow(newFrom.getRow() - 1);
-//                      deltaRow++;
-//                    }
-//                  }
-//                  /** Move Row **/
-//                  if(deltaRow > deltaCol || (deltaRow < 0 && deltaCol >= 0)) {
-//                    if(deltaRow > 0) { // Move Up
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn()).setPieceName(descriptor.getPieceName());
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn()).setPlayer(players[whosTurn]);
-//                      newFrom.setRow(newFrom.getRow() + 1);
-//                      deltaRow--;
-//                    }
-//                    if(deltaRow < 0) { // Move Down
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() - 1, newFrom.getColumn()).setPieceName(descriptor.getPieceName());
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() - 1, newFrom.getColumn()).setPlayer(players[whosTurn]);
-//                      newFrom.setRow(newFrom.getRow() - 1);
-//                      deltaRow++;
-//                    }
-//                  }
-//                  /** Move Column **/
-//                  if(deltaRow < deltaCol || (deltaRow >= 0 && deltaCol < 0)) {
-//                    if(deltaCol < 0) { // Move Left
-//                      //Set initial location to null
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
-//                      //Set new location to piece
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn() - 1).setPieceName(descriptor.getPieceName());
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn() - 1).setPlayer(players[whosTurn]);
-//                      newFrom.setColumn(newFrom.getColumn() - 1);
-//                      deltaCol++;
-//                    }
-//                    if(deltaCol > 0) { // Move Right
-//                      //Set initial location to null
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
-//                      //Set new location to piece
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn() + 1).setPieceName(descriptor.getPieceName());
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn() + 1).setPlayer(players[whosTurn]);
-//                      newFrom.setColumn(newFrom.getColumn() + 1);
-//                      deltaCol--;
-//                    }
-//                  }
-//                }
-//                if(deltaRow == 0 && deltaCol == 0){
-//                  gameStatus.setValidMove(true);
-//                  return gameStatus;
-//                }
-//                break;
-////*******************************************************************************************************************************
-//              case LINEAR:
-//                // Move straight by only row or column
-//                while(deltaRow != 0 || deltaCol != 0) {
-//                  /** Move Diagonally **/
-//                  if(deltaRow == deltaCol) {
-//                    if(deltaRow > 0 && deltaCol > 0) { // Move Up Diagonally
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn() + 1).setPieceName(descriptor.getPieceName());
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn() + 1).setPlayer(players[whosTurn]);
-//                      newFrom.setRow(newFrom.getRow() + 1);
-//                      newFrom.setColumn(newFrom.getColumn() + 1);
-//                      deltaRow--;
-//                      deltaCol--;
-//                    }
-//                    if(deltaRow < 0 && deltaCol < 0) { // Move Down Diagonally
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() - 1, newFrom.getColumn() - 1).setPieceName(descriptor.getPieceName());
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() - 1, newFrom.getColumn() - 1).setPlayer(players[whosTurn]);
-//                      newFrom.setRow(newFrom.getRow() - 1);
-//                      newFrom.setColumn(newFrom.getColumn() - 1);
-//                      deltaRow++;
-//                      deltaCol++;
-//                    }
-//                  }
-//                  /** Move Row **/
-//                  if(deltaRow > deltaCol || (deltaRow < 0 && deltaCol >= 0)) {
-//                    if(deltaRow > 0) { // Move Up
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn()).setPieceName(descriptor.getPieceName());
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn()).setPlayer(players[whosTurn]);
-//                      newFrom.setRow(newFrom.getRow() + 1);
-//                      deltaRow--;
-//                    }
-//                    if(deltaRow < 0) { // Move Down
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() - 1, newFrom.getColumn()).setPieceName(descriptor.getPieceName());
-//                      tempGameBoard.getBoardLocation(newFrom.getRow() - 1, newFrom.getColumn()).setPlayer(players[whosTurn]);
-//                      newFrom.setRow(newFrom.getRow() - 1);
-//                      deltaRow++;
-//                    }
-//                  }
-//                  /** Move Column **/
-//                  if(deltaRow < deltaCol || (deltaRow >= 0 && deltaCol < 0)) {
-//                    if(deltaCol < 0) { // Move Left
-//                      //Set initial location to null
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
-//                      //Set new location to piece
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn() - 1).setPieceName(descriptor.getPieceName());
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn() - 1).setPlayer(players[whosTurn]);
-//                      newFrom.setColumn(newFrom.getColumn() - 1);
-//                      deltaCol++;
-//                    }
-//                    if(deltaCol > 0) { // Move Right
-//                      //Set initial location to null
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
-//                      //Set new location to piece
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn() + 1).setPieceName(descriptor.getPieceName());
-//                      tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn() + 1).setPlayer(players[whosTurn]);
-//                      newFrom.setColumn(newFrom.getColumn() + 1);
-//                      deltaCol--;
-//                    }
-//                  }
-//                }
-//                if(deltaRow == 0 && deltaCol == 0){
-//                  gameStatus.setValidMove(true);
-//                  return gameStatus;
-//                }
-//                break;
-//              //*************************************************************************************************************
-//              case DIAGONAL:
-//                // Move in any diagonal direction
-//                break;
-//              //*************************************************************************************************************
-//              case OMNI:
-//                // Move in any direction
-//                break;
-//              //*************************************************************************************************************
-//
-//
-//            } // End of Switch
-//          } else {
-//            gameStatus.setValidMove(false);
-//            return gameStatus;
-//          }
-//        }
-//      }
-
-
-  /** Coordinate **/
   /**
    * Returns a coordinate of the appropriate type. If the coordinate cannot be
    * created, then null is returned and the status message is set appropriately.
@@ -351,9 +185,9 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
    * @return the coordinate or null if the coordinate cannot be implemented
    */
   @Override
-  public CoordinateImpl makeCoordinate(int col, int row){
+  public CoordinateImpl makeCoordinate(int row, int col){
     try {
-      Coordinate newCoordinate = new CoordinateImpl(col, row);
+      Coordinate newCoordinate = new CoordinateImpl(row, col);
       return (CoordinateImpl)newCoordinate;
     } catch(Exception e) {
       System.out.println("Exception from escape builder: " + e.getMessage());

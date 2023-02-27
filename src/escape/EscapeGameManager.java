@@ -38,10 +38,7 @@ public interface EscapeGameManager<C extends Coordinate> {
 	 * @param coordinate the location to probe
 	 * @return the piece at the specified location or null if there is none
 	 */
-	default EscapePiece getPieceAt(C coordinate)
-	{
-		throw new EscapeException("Not implemented");
-	}
+	default EscapePiece getPieceAt(C coordinate) { throw new EscapeException("Not implemented"); }
 	
 	/**
 	 * Returns a coordinate of the appropriate type. If the coordinate cannot be

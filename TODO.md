@@ -41,8 +41,47 @@
 |   26  | Move coordinate to same coordinate                                         | Move coordinate on board                                    |
 |   27  | Move coordinate with no player                                             | Move coordinate on board                                    |
 |   28  | Move coordinate off the board                                              | Move coordinate on board                                    |
+|**---**| **-------------------- TESTS FOR LINEAR --------------------**             |**---------------------------------------------------------**|
+|   29  | Move coordinate LINEAR - UP                                                | Move coordinate on board                                    |
+|   30  | Move coordinate LINEAR - DOWN                                              | Move coordinate on board                                    |
+|   31  | Move coordinate LINEAR - LEFT                                              | Move coordinate on board                                    |
+|   32  | Move coordinate LINEAR - RIGHT                                             | Move coordinate on board                                    |
+|   33  | Move coordinate LINEAR - UPRIGHT                                           | Move coordinate on board                                    |
+|   34  | Move coordinate LINEAR - UPLEFT                                            | Move coordinate on board                                    |
+|   35  | Move coordinate LINEAR - DOWNRIGHT                                         | Move coordinate on board                                    |
+|   36  | Move coordinate LINEAR - DOWNLEFT                                          | Move coordinate on board                                    |
+|**---**| **---------------- TESTS FOR LINEAR FAILS (Obstacles)  ----------------**  |**---------------------------------------------------------**|
+|   37  | Move coordinate LINEAR - UP (BLOCK)                                        | Move coordinate on board                                    |
+|   38  | Move coordinate LINEAR - DOWN (BLOCK)                                      | Move coordinate on board                                    |
+|   39  | Move coordinate LINEAR - LEFT (BLOCK)                                      | Move coordinate on board                                    |
+|   40  | Move coordinate LINEAR - RIGHT (BLOCK)                                     | Move coordinate on board                                    |
+|   41  | Move coordinate LINEAR - UPRIGHT (BLOCK)                                   | Move coordinate on board                                    |
+|   42  | Move coordinate LINEAR - UPLEFT (BLOCK)                                    | Move coordinate on board                                    |
+|   43  | Move coordinate LINEAR - DOWNRIGHT (BLOCK)                                 | Move coordinate on board                                    |
+|   44  | Move coordinate LINEAR - DOWNLEFT (BLOCK)                                  | Move coordinate on board                                    |
+|   45  | Move coordinate LINEAR - UP (PIECE)                                        | Move coordinate on board                                    |
+|   46  | Move coordinate LINEAR - DOWN (PIECE)                                      | Move coordinate on board                                    |
+|   47  | Move coordinate LINEAR - LEFT (PIECE)                                      | Move coordinate on board                                    |
+|   48  | Move coordinate LINEAR - RIGHT (PIECE)                                     | Move coordinate on board                                    |
+|   49  | Move coordinate LINEAR - UPRIGHT (PIECE)                                   | Move coordinate on board                                    |
+|   50  | Move coordinate LINEAR - UPLEFT (PIECE)                                    | Move coordinate on board                                    |
+|   51  | Move coordinate LINEAR - DOWNRIGHT (PIECE)                                 | Move coordinate on board                                    |
+|   52  | Move coordinate LINEAR - DOWNLEFT (PIECE)                                  | Move coordinate on board                                    |
+|   53  | Move coordinate LINEAR - UPUPRIGHT                                         | Move coordinate on board                                    |
+|   54  | Move coordinate LINEAR - UPUPLEFT                                          | Move coordinate on board                                    |
+|   55  | Move coordinate LINEAR - DOWNDOWNRIGHT                                     | Move coordinate on board                                    |
+|   56  | Move coordinate LINEAR - DOWNDOWNLEFT                                      | Move coordinate on board                                    |
+|   57  | Move coordinate LINEAR - Move Too Far                                      | Move coordinate on board                                    |
+|   58  | Move coordinate LINEAR - Move Off Board                                    | Move coordinate on board                                    |
+|   59  | Move coordinate LINEAR - Move Off Board2                                   | Move coordinate on board                                    |
 |**---**| **-------------------- TESTS FOR ORTHOGONAL --------------------**         |**---------------------------------------------------------**|
-|   29  | Move coordinate ORTHOGONAL - UP                                            | Move coordinate on board                                    |
+|   60  | Move coordinate ORTHOGONAL - UP                                            | Move coordinate on board                                    |
+
+
+
+
+
+
 |   30  | Move coordinate ORTHOGONAL - DOWN                                          | Move coordinate on board                                    |
 |   31  | Move coordinate ORTHOGONAL - LEFT                                          | Move coordinate on board                                    |
 |   32  | Move coordinate ORTHOGONAL - RIGHT                                         | Move coordinate on board                                    |
@@ -55,20 +94,6 @@
 |   39  | Move coordinate ORTHOGONAL - DOWNDOWNRIGHT                                 | Move coordinate on board                                    |
 |   40  | Move coordinate ORTHOGONAL - DOWNDOWNLEFT                                  | Move coordinate on board                                    |
 |   41  | Move coordinate ORTHOGONAL - INVALID (Too Far)                             | Move coordinate on board                                    |
-|**---**| **-------------------- TESTS FOR LINEAR --------------------**             |**---------------------------------------------------------**|
-|   42  | Move coordinate LINEAR - UP                                                | Move coordinate on board                                    |
-|   43  | Move coordinate LINEAR - DOWN                                              | Move coordinate on board                                    |
-|   44  | Move coordinate LINEAR - LEFT                                              | Move coordinate on board                                    |
-|   45  | Move coordinate LINEAR - RIGHT                                             | Move coordinate on board                                    |
-|   46  | Move coordinate LINEAR - UPRIGHT                                           | Move coordinate on board                                    |
-|   47  | Move coordinate LINEAR - UPLEFT                                            | Move coordinate on board                                    |
-|   48  | Move coordinate LINEAR - DOWNRIGHT                                         | Move coordinate on board                                    |
-|   49  | Move coordinate LINEAR - DOWNLEFT                                          | Move coordinate on board                                    |
-|   50  | Move coordinate LINEAR - UPUPRIGHT                                         | Move coordinate on board                                    |
-|   51  | Move coordinate LINEAR - UPUPLEFT                                          | Move coordinate on board                                    |
-|   52  | Move coordinate LINEAR - DOWNDOWNRIGHT                                     | Move coordinate on board                                    |
-|   53  | Move coordinate LINEAR - DOWNDOWNLEFT                                      | Move coordinate on board                                    |
-|   54  | Move coordinate LINEAR - INVALID (Too Far)                                 | Move coordinate on board                                    |
 |**---**| **-------------------- TESTS FOR OMNI --------------------**               |**---------------------------------------------------------**|
 |   55  | Move coordinate OMNI - UP                                                  | Move coordinate on board                                    |
 |   56  | Move coordinate OMNI - DOWN                                                | Move coordinate on board                                    |
