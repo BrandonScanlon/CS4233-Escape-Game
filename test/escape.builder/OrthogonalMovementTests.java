@@ -13,11 +13,11 @@ public class OrthogonalMovementTests {
   /********************** ORTHOGONAL MOVEMENT TESTS **********************/
   //***************************************************************************************************************************
   @Test
-  /**  **/
+  /** 60 **/
   void checkMoveOrthogonalUp() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config5.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -38,11 +38,11 @@ public class OrthogonalMovementTests {
     assertEquals(coordA.getColumn(), coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /**  **/
+  @Test /** 61 **/
   void checkMoveOrthogonalDown() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config5.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -63,11 +63,11 @@ public class OrthogonalMovementTests {
     assertEquals(coordA.getColumn(), coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /**  **/
+  @Test /** 62 **/
   void checkMoveOrthogonalLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config5.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -88,11 +88,11 @@ public class OrthogonalMovementTests {
     assertEquals(coordA.getColumn(), coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /**  **/
+  @Test /** 63 **/
   void checkMoveOrthogonalRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config5.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -112,13 +112,12 @@ public class OrthogonalMovementTests {
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
   }
-
   //***************************************************************************************************************************
-  @Test /**  **/
+  @Test /** 64 **/
   void checkMoveOrthogonalUpRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config5.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -139,11 +138,11 @@ public class OrthogonalMovementTests {
     assertEquals(coordA.getColumn(), coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /**  **/
+  @Test /** 65 **/
   void checkMoveOrthogonalUpLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config5.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -164,11 +163,11 @@ public class OrthogonalMovementTests {
     assertEquals(coordA.getColumn(), coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /**  **/
+  @Test /** 66 **/
   void checkMoveOrthogonalDownRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config5.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -189,11 +188,11 @@ public class OrthogonalMovementTests {
     assertEquals(coordA.getColumn(), coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /**  **/
+  @Test /** 67 **/
   void checkMoveOrthogonalDownLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config5.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -214,11 +213,11 @@ public class OrthogonalMovementTests {
     assertEquals(coordA.getColumn(), coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /**  **/
+  @Test /** 68 **/
   void checkMoveOrthogonalUpUpRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config6.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests2.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -239,11 +238,11 @@ public class OrthogonalMovementTests {
     assertEquals(coordA.getColumn(), coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /**  **/
+  @Test /** 69 **/
   void checkMoveOrthogonalUpUpLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config6.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests2.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -264,11 +263,11 @@ public class OrthogonalMovementTests {
     assertEquals(coordA.getColumn(), coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /**  **/
+  @Test /** 70 **/
   void checkMoveOrthogonalDownDownRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config6.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests2.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -289,11 +288,11 @@ public class OrthogonalMovementTests {
     assertEquals(coordA.getColumn(), coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /**  **/
+  @Test /** 71 **/
   void checkMoveOrthogonalDownDownLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config6.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests2.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -312,28 +311,5 @@ public class OrthogonalMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
-  }
-  //***************************************************************************************************************************
-  @Test /**  **/
-  void checkMoveOrthogonalTooFar() {
-    EscapeGameManagerImpl egm = null;
-    try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config6.egc").makeGameManager();
-    } catch (Exception e){
-      fail("Exception from escape builder: " + e.getMessage());
-    }
-    assertNotNull(egm);
-
-    CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.SNAIL);
-    coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(1, 1);
-    coordB.setPieceName(null);
-    coordB.setPlayer(null);
-
-    GameStatusImpl status = new GameStatusImpl();
-    status.setValidMove(false);
-
-    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
   }
 }

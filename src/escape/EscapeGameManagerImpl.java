@@ -23,7 +23,6 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
   private PieceTypeDescriptor[] pieceTypeDescriptors;
   private int whosTurn = 0;
   private int maxDistance = 0;
-  private int moves = 0;
   private CoordinateImpl startingCoord;
 
   // Constructors
@@ -92,6 +91,7 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
 
   public EscapePieceImpl getPieceAt(CoordinateImpl coordinate) { return null; }
 
+
   /******************** MOVE ********************/
   public GameStatus move(Coordinate from, Coordinate to) {
     GameStatusImpl gameStatus = new GameStatusImpl();
@@ -141,14 +141,13 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
           int deltaRow = to.getRow() - from.getRow();
           int deltaCol = to.getColumn() - from.getColumn();
           int distance = 0;
-          moves = 0;
 
           maxDistance = descriptor.getAttribute(PieceAttributeID.DISTANCE).getValue();
 
           if(deltaRow == deltaCol && (movementPattern == MovementPattern.LINEAR || movementPattern == MovementPattern.DIAGONAL)) {
             distance = deltaRow;
           }
-          Move move = new Move(gameStatus, movementPattern, descriptor, players, whosTurn, tempGameBoard, newFrom, deltaCol, deltaRow, moves);
+          Move move = new Move(gameStatus, movementPattern, descriptor, players, whosTurn, tempGameBoard, newFrom, deltaCol, deltaRow, maxDistance);
           if(distance == 0 && newFrom.distanceTo(to) <= maxDistance) {
             gameStatus = move.movePiece();
 
@@ -165,9 +164,6 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
           gameStatus.setMoveResult(GameStatusImpl.MoveResult.NONE);
           gameStatus.setCombatResult(GameStatusImpl.CombatResult.NONE);
           newFrom = startingCoord;
-          return gameStatus;
-        } else if (moves > maxDistance) {
-          gameStatus.setValidMove(false);
           return gameStatus;
         } else {
           return gameStatus;

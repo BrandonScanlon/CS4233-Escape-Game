@@ -6,7 +6,8 @@ Players : Chris Pat
 Locations :
     (1, 1) CLEAR
     (4, 4) clear Chris snail
-    (5, 4) block
+    (3, 4) block
+    (4, 5) block
     (5, 12) exit
 
 Piece Descriptors :

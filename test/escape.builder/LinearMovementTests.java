@@ -15,7 +15,7 @@ public class LinearMovementTests {
   void checkMoveLinearUp() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Linear Configurations/LinearPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -40,7 +40,7 @@ public class LinearMovementTests {
   void checkMoveLinearDown() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Linear Configurations/LinearPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -65,7 +65,7 @@ public class LinearMovementTests {
   void checkMoveLinearLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Linear Configurations/LinearPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -90,7 +90,7 @@ public class LinearMovementTests {
   void checkMoveLinearRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Linear Configurations/LinearPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -116,7 +116,7 @@ public class LinearMovementTests {
   void checkMoveLinearUpRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Linear Configurations/LinearPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -141,7 +141,7 @@ public class LinearMovementTests {
   void checkMoveLinearUpLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Linear Configurations/LinearPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -166,7 +166,7 @@ public class LinearMovementTests {
   void checkMoveLinearDownRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Linear Configurations/LinearPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -191,7 +191,7 @@ public class LinearMovementTests {
   void checkMoveLinearDownLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Linear Configurations/LinearPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }

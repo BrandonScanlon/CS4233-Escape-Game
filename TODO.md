@@ -76,24 +76,37 @@
 |   59  | Move coordinate LINEAR - Move Off Board2                                   | Move coordinate on board                                    |
 |**---**| **-------------------- TESTS FOR ORTHOGONAL --------------------**         |**---------------------------------------------------------**|
 |   60  | Move coordinate ORTHOGONAL - UP                                            | Move coordinate on board                                    |
+|   61  | Move coordinate ORTHOGONAL - DOWN                                          | Move coordinate on board                                    |
+|   62  | Move coordinate ORTHOGONAL - LEFT                                          | Move coordinate on board                                    |
+|   63  | Move coordinate ORTHOGONAL - RIGHT                                         | Move coordinate on board                                    |
+|   64  | Move coordinate ORTHOGONAL - UPRIGHT                                       | Move coordinate on board                                    |
+|   65  | Move coordinate ORTHOGONAL - UPLEFT                                        | Move coordinate on board                                    |
+|   66  | Move coordinate ORTHOGONAL - DOWNRIGHT                                     | Move coordinate on board                                    |
+|   67  | Move coordinate ORTHOGONAL - DOWNLEFT                                      | Move coordinate on board                                    |
+|   68  | Move coordinate ORTHOGONAL - UPUPRIGHT                                     | Move coordinate on board                                    |
+|   69  | Move coordinate ORTHOGONAL - UPUPLEFT                                      | Move coordinate on board                                    |
+|   70  | Move coordinate ORTHOGONAL - DOWNDOWNRIGHT                                 | Move coordinate on board                                    |
+|   71  | Move coordinate ORTHOGONAL - DOWNDOWNLEFT                                  | Move coordinate on board                                    |
+|**---**| **--------------- TESTS FOR ORTHOGONAL (Obstacles) ---------------**       |**---------------------------------------------------------**|
+|   72  | Move coordinate ORTHOGONAL - UP (BLOCK)                                    | Move coordinate on board                                    |
+|   73  | Move coordinate ORTHOGONAL - DOWN (BLOCK)                                  | Move coordinate on board                                    |
+|   74  | Move coordinate ORTHOGONAL - RIGHT (BLOCK)                                 | Move coordinate on board                                    |
+|   75  | Move coordinate ORTHOGONAL - LEFT (BLOCK)                                  | Move coordinate on board                                    |
+|   76  | Move coordinate ORTHOGONAL - UPRIGHT (BLOCK)                               | Move coordinate on board                                    |
+|   77  | Move coordinate ORTHOGONAL - UPLEFT (BLOCK)                                | Move coordinate on board                                    |
+|   78  | Move coordinate ORTHOGONAL - DOWNRIGHT (BLOCK)                             | Move coordinate on board                                    |
+|   79  | Move coordinate ORTHOGONAL - DOWNLEFT (BLOCK)                              | Move coordinate on board                                    |
+|   80  | Move coordinate ORTHOGONAL - UP (PIECE)                                    | Move coordinate on board                                    |
+|   81  | Move coordinate ORTHOGONAL - DOWN (PIECE)                                  | Move coordinate on board                                    |
+|   82  | Move coordinate ORTHOGONAL - RIGHT (PIECE)                                 | Move coordinate on board                                    |
+|   83  | Move coordinate ORTHOGONAL - LEFT (PIECE)                                  | Move coordinate on board                                    |
+|   84  | Move coordinate ORTHOGONAL - Move Too Far                                  | Move coordinate on board                                    |
+|   85  | Move coordinate ORTHOGONAL - Move Off Board                                | Move coordinate on board                                    |
+|   86  | Move coordinate ORTHOGONAL - Move Off Board2                               | Move coordinate on board                                    |
+|**---**| **-------------------- TESTS FOR DIAGONAL --------------------**           |**---------------------------------------------------------**|
 
 
 
-
-
-
-|   30  | Move coordinate ORTHOGONAL - DOWN                                          | Move coordinate on board                                    |
-|   31  | Move coordinate ORTHOGONAL - LEFT                                          | Move coordinate on board                                    |
-|   32  | Move coordinate ORTHOGONAL - RIGHT                                         | Move coordinate on board                                    |
-|   33  | Move coordinate ORTHOGONAL - UPRIGHT                                       | Move coordinate on board                                    |
-|   34  | Move coordinate ORTHOGONAL - UPLEFT                                        | Move coordinate on board                                    |
-|   35  | Move coordinate ORTHOGONAL - DOWNRIGHT                                     | Move coordinate on board                                    |
-|   36  | Move coordinate ORTHOGONAL - DOWNLEFT                                      | Move coordinate on board                                    |
-|   37  | Move coordinate ORTHOGONAL - UPUPRIGHT                                     | Move coordinate on board                                    |
-|   38  | Move coordinate ORTHOGONAL - UPUPLEFT                                      | Move coordinate on board                                    |
-|   39  | Move coordinate ORTHOGONAL - DOWNDOWNRIGHT                                 | Move coordinate on board                                    |
-|   40  | Move coordinate ORTHOGONAL - DOWNDOWNLEFT                                  | Move coordinate on board                                    |
-|   41  | Move coordinate ORTHOGONAL - INVALID (Too Far)                             | Move coordinate on board                                    |
 |**---**| **-------------------- TESTS FOR OMNI --------------------**               |**---------------------------------------------------------**|
 |   55  | Move coordinate OMNI - UP                                                  | Move coordinate on board                                    |
 |   56  | Move coordinate OMNI - DOWN                                                | Move coordinate on board                                    |
