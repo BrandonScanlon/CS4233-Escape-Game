@@ -216,26 +216,6 @@ public class EscapeGameManagerTest {
     }
     assertFalse(coordA.equals(coordB));
   }
-//
-//  /** EscapeGameManager Method Exception Tests **/
-//  //***********************************************************************************************
-//  @Test /** 15 **/
-//  void checkEGMMove() {
-//    EscapeGameManagerImpl egm = null;
-//    try{
-//      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config2.egc").makeGameManager();
-//    } catch (Exception e){
-//      fail("Exception from escape builder: " + e.getMessage());
-//    }
-//    assertNotNull(egm);
-//    CoordinateImpl coordA = new CoordinateImpl(1, 4);
-//    CoordinateImpl coordB = new CoordinateImpl(32, 11);
-//
-//    EscapeGameManagerImpl finalEgm = egm;
-//    assertThrows(EscapeException.class, () -> {
-//      finalEgm.move(coordA, coordB);
-//    });
-//  }
   //***************************************************************************************************************************
   @Test /** 16 **/
   void checkEGMGetPieceAt() {

@@ -59,9 +59,10 @@ public class GameStatusImpl implements GameStatus {
    * the destination (to) specified in the move();
    */
   public Coordinate finalLocation(){
-    System.out.println("Successfully Moved To:");
-    System.out.println(finalLocation.toString());
-    return finalLocation;
+//    System.out.println("Successfully Moved To:");
+//    System.out.println(finalLocation.toString());
+//    return finalLocation;
+    return null;
   }
 
   public void setFinalLocation(Coordinate finalLocation){ this.finalLocation = finalLocation; }

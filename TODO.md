@@ -103,35 +103,58 @@
 |   84  | Move coordinate ORTHOGONAL - Move Too Far                                  | Move coordinate on board                                    |
 |   85  | Move coordinate ORTHOGONAL - Move Off Board                                | Move coordinate on board                                    |
 |   86  | Move coordinate ORTHOGONAL - Move Off Board2                               | Move coordinate on board                                    |
-|**---**| **-------------------- TESTS FOR DIAGONAL --------------------**           |**---------------------------------------------------------**|
-
-
-
-|**---**| **-------------------- TESTS FOR OMNI --------------------**               |**---------------------------------------------------------**|
-|   55  | Move coordinate OMNI - UP                                                  | Move coordinate on board                                    |
-|   56  | Move coordinate OMNI - DOWN                                                | Move coordinate on board                                    |
-|   57  | Move coordinate OMNI - LEFT                                                | Move coordinate on board                                    |
-|   58  | Move coordinate OMNI - RIGHT                                               | Move coordinate on board                                    |
-|   59  | Move coordinate OMNI - UPRIGHT                                             | Move coordinate on board                                    |
-|   60  | Move coordinate OMNI - UPLEFT                                              | Move coordinate on board                                    |
-|   61  | Move coordinate OMNI - DOWNRIGHT                                           | Move coordinate on board                                    |
-|   62  | Move coordinate OMNI - DOWNLEFT                                            | Move coordinate on board                                    |
-|   63  | Move coordinate OMNI - UPUPRIGHT                                           | Move coordinate on board                                    |
-|   64  | Move coordinate OMNI - UPUPLEFT                                            | Move coordinate on board                                    |
-|   65  | Move coordinate OMNI - DOWNDOWNRIGHT                                       | Move coordinate on board                                    |
-|   66  | Move coordinate OMNI - DOWNDOWNLEFT                                        | Move coordinate on board                                    |
-|   67  | Move coordinate OMNI - INVALID (Too Far)                                   | Move coordinate on board                                    |
+|**---**| **-------------------- TESTS FOR OMNI SQUARE --------------------**        |**---------------------------------------------------------**|
+|   87  | Move coordinate OMNI - UP                                                  | Move coordinate on board                                    |
+|   88  | Move coordinate OMNI - DOWN                                                | Move coordinate on board                                    |
+|   89  | Move coordinate OMNI - LEFT                                                | Move coordinate on board                                    |
+|   90  | Move coordinate OMNI - RIGHT                                               | Move coordinate on board                                    |
+|   91  | Move coordinate OMNI - UPRIGHT                                             | Move coordinate on board                                    |
+|   92  | Move coordinate OMNI - UPLEFT                                              | Move coordinate on board                                    |
+|   93  | Move coordinate OMNI - DOWNRIGHT                                           | Move coordinate on board                                    |
+|   94  | Move coordinate OMNI - DOWNLEFT                                            | Move coordinate on board                                    |
+|   95  | Move coordinate OMNI - UPUPRIGHT                                           | Move coordinate on board                                    |
+|   96  | Move coordinate OMNI - UPUPLEFT                                            | Move coordinate on board                                    |
+|   97  | Move coordinate OMNI - DOWNDOWNRIGHT                                       | Move coordinate on board                                    |
+|   98  | Move coordinate OMNI - DOWNDOWNLEFT                                        | Move coordinate on board                                    |
+|**---**| **--------------- TESTS FOR OMNI SQUARE (Obstacles) ---------------**      |**---------------------------------------------------------**|
+|   99  | Move coordinate OMNI - UP (BLOCK)                                          | Move coordinate on board                                    |
+|  100  | Move coordinate OMNI - DOWN (BLOCK)                                        | Move coordinate on board                                    |
+|  101  | Move coordinate OMNI - LEFT (BLOCK)                                        | Move coordinate on board                                    |
+|  102  | Move coordinate OMNI - RIGHT (BLOCK)                                       | Move coordinate on board                                    |
+|  103  | Move coordinate OMNI - UPRIGHT (BLOCK)                                     | Move coordinate on board                                    |
+|  104  | Move coordinate OMNI - UPLEFT (BLOCK)                                      | Move coordinate on board                                    |
+|  105  | Move coordinate OMNI - DOWNRIGHT (BLOCK)                                   | Move coordinate on board                                    |
+|  106  | Move coordinate OMNI - DOWNLEFT (BLOCK)                                    | Move coordinate on board                                    |
+|  107  | Move coordinate OMNI - UP (PIECE)                                          | Move coordinate on board                                    |
+|  108  | Move coordinate OMNI - DOWN (PIECE)                                        | Move coordinate on board                                    |
+|  109  | Move coordinate OMNI - LEFT (PIECE)                                        | Move coordinate on board                                    |
+|  110  | Move coordinate OMNI - RIGHT (PIECE)                                       | Move coordinate on board                                    |
+|  111  | Move coordinate OMNI - UPRIGHT (PIECE)                                     | Move coordinate on board                                    |
+|  112  | Move coordinate OMNI - UPLEFT (PIECE)                                      | Move coordinate on board                                    |
+|  113  | Move coordinate OMNI - DOWNRIGHT (PIECE)                                   | Move coordinate on board                                    |
+|  114  | Move coordinate OMNI - DOWNLEFT (PIECE)                                    | Move coordinate on board                                    |
+|  115  | Move coordinate OMNI - UPUPRIGHT                                           | Move coordinate on board                                    |
+|  116  | Move coordinate OMNI - UPUPLEFT                                            | Move coordinate on board                                    |
+|  117  | Move coordinate OMNI - DOWNDOWNRIGHT                                       | Move coordinate on board                                    |
+|  118  | Move coordinate OMNI - DOWNDOWNLEFT                                        | Move coordinate on board                                    |
+|  119  | Move coordinate OMNI - Move Too Far                                        | Move coordinate on board                                    |
+|  120  | Move coordinate OMNI - Move Off Board                                      | Move coordinate on board                                    |
+|**---**| **-------------------- TESTS FOR EXIT --------------------**               |**---------------------------------------------------------**|
+|  121  | Move ORTHOGONAL to Exit                                                    | Move coordinate on board                                    |
+|  122  | Move LINEAR to Exit                                                        | Move coordinate on board                                    |
+|  123  | Move OMNI to Exit                                                          | Move coordinate on board                                    |
+|  124  | Move DIAGONAL to Exit                                                      | Move coordinate on board                                    |
 |**---**| **-------------------- TESTS FOR FLY --------------------**                |**---------------------------------------------------------**|
-|   68  | Move coordinate FLY - UP                                                   | Move coordinate on board                                    |
-|   69  | Move coordinate FLY - DOWN                                                 | Move coordinate on board                                    |
-|   70  | Move coordinate FLY - LEFT                                                 | Move coordinate on board                                    |
-|   71  | Move coordinate FLY - RIGHT                                                | Move coordinate on board                                    |
-|   72  | Move coordinate FLY - UPRIGHT                                              | Move coordinate on board                                    |
-|   73  | Move coordinate FLY - UPLEFT                                               | Move coordinate on board                                    |
-|   74  | Move coordinate FLY - DOWNRIGHT                                            | Move coordinate on board                                    |
-|   75  | Move coordinate FLY - DOWNLEFT                                             | Move coordinate on board                                    |
-|   76  | Move coordinate FLY - UPUPRIGHT                                            | Move coordinate on board                                    |
-|   77  | Move coordinate FLY - UPUPLEFT                                             | Move coordinate on board                                    |
-|   78  | Move coordinate FLY - DOWNDOWNRIGHT                                        | Move coordinate on board                                    |
-|   79  | Move coordinate FLY - DOWNDOWNLEFT                                         | Move coordinate on board                                    |
-|   80  | Move coordinate FLY - INVALID                                              | Move coordinate on board                                    |
+|   00  | Move coordinate FLY - UP                                                   | Move coordinate on board                                    |
+|   00  | Move coordinate FLY - DOWN                                                 | Move coordinate on board                                    |
+|   00  | Move coordinate FLY - LEFT                                                 | Move coordinate on board                                    |
+|   00  | Move coordinate FLY - RIGHT                                                | Move coordinate on board                                    |
+|   00  | Move coordinate FLY - UPRIGHT                                              | Move coordinate on board                                    |
+|   00  | Move coordinate FLY - UPLEFT                                               | Move coordinate on board                                    |
+|   00  | Move coordinate FLY - DOWNRIGHT                                            | Move coordinate on board                                    |
+|   00  | Move coordinate FLY - DOWNLEFT                                             | Move coordinate on board                                    |
+|   00  | Move coordinate FLY - UPUPRIGHT                                            | Move coordinate on board                                    |
+|   00  | Move coordinate FLY - UPUPLEFT                                             | Move coordinate on board                                    |
+|   00  | Move coordinate FLY - DOWNDOWNRIGHT                                        | Move coordinate on board                                    |
+|   00  | Move coordinate FLY - DOWNDOWNLEFT                                         | Move coordinate on board                                    |
+|   00  | Move coordinate FLY - INVALID                                              | Move coordinate on board                                    |

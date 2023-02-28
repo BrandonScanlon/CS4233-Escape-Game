@@ -11,10 +11,6 @@ package escape.builder;
  * Copyright ©2016-2023 Gary F. Pollice
  *******************************************************************************/
 
-import escape.builder.EscapeGameBuilder;
-import escape.builder.LocationInitializer;
-import escape.builder.PieceTypeDescriptor;
-import escape.builder.RuleDescriptor;
 import escape.required.Coordinate.*;
 
 import javax.xml.bind.annotation.*;

@@ -36,10 +36,10 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
     this.pieceTypeDescriptors = pieceTypeDescriptors;
 
     if(coordinateType == CoordinateType.SQUARE) {
-      SquareGameBoard squareGameBoard = new SquareGameBoard(this.colMax, this.rowMax, obstacleLocations, pieceTypeDescriptors);
+      SquareGameBoard squareGameBoard = new SquareGameBoard(this.rowMax, this.colMax, obstacleLocations, pieceTypeDescriptors);
       this.gameBoard = new GameBoardImpl(squareGameBoard);
     } else if(coordinateType == CoordinateType.HEX) {
-      HexGameBoard hexGameBoard = new HexGameBoard(this.colMax, this.rowMax, obstacleLocations, pieceTypeDescriptors);
+      HexGameBoard hexGameBoard = new HexGameBoard(this.rowMax, this.colMax, obstacleLocations, pieceTypeDescriptors);
       this.gameBoard = new GameBoardImpl(hexGameBoard);
     }
   }
@@ -96,6 +96,7 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
   public GameStatus move(Coordinate from, Coordinate to) {
     GameStatusImpl gameStatus = new GameStatusImpl();
     GameBoardImpl gameBoard = this.getGameBoard();
+    startingCoord = (CoordinateImpl)from;
 
     /******************** Check if valid move (immediate red flags) ********************/
     // Null Coordinates (Not sure if needed)
@@ -144,14 +145,22 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
 
           maxDistance = descriptor.getAttribute(PieceAttributeID.DISTANCE).getValue();
 
-          if(deltaRow == deltaCol && (movementPattern == MovementPattern.LINEAR || movementPattern == MovementPattern.DIAGONAL)) {
+          if(tempGameBoard.getBoardLocation(to.getRow(), to.getColumn()).getLocationType() == LocationType.EXIT){
+            gameStatus.setValidMove(false);
+            return gameStatus;
+          } else if (tempGameBoard.getBoardLocation(to.getRow(), to.getColumn()).getLocationType() == LocationType.BLOCK) {
+            gameStatus.setValidMove(false);
+            return gameStatus;
+          }
+
+          if((deltaRow == deltaCol || Math.abs(deltaRow) == Math.abs(deltaCol)) && (movementPattern == MovementPattern.LINEAR || movementPattern == MovementPattern.DIAGONAL || movementPattern == MovementPattern.OMNI)) {
             distance = deltaRow;
           }
           Move move = new Move(gameStatus, movementPattern, descriptor, players, whosTurn, tempGameBoard, newFrom, deltaCol, deltaRow, maxDistance);
           if(distance == 0 && newFrom.distanceTo(to) <= maxDistance) {
             gameStatus = move.movePiece();
 
-          } else if(distance == deltaRow && distance <= maxDistance) {
+          } else if(distance == deltaRow && Math.abs(distance) <= maxDistance) {
             gameStatus = move.movePiece();
           } else {
             gameStatus.setValidMove(false);

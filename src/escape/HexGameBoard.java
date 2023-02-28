@@ -28,12 +28,12 @@ public class HexGameBoard implements GameBoard {
     this.pieceTypeDescriptors = pieceTypeDescriptors;
 
     // Create game board
-    board = new CoordinateImpl[cols][rows];
+    board = new CoordinateImpl[rows][cols];
 
     // Set all locations on the game board to CLEAR to start
     for(int row = 1; row < rows; row++) {
       for(int col = 1; col < cols; col++) {
-        board[col][row] = new CoordinateImpl(col, row);
+        board[col][row] = new CoordinateImpl(row, col);
         board[col][row].setLocationType(LocationType.CLEAR);
         board[col][row].setPlayer(null);
         board[col][row].setPieceName(null);
@@ -54,15 +54,30 @@ public class HexGameBoard implements GameBoard {
     board[col][row].setLocationType(locationInitializer.locationType);
   }
 
-  public int getRows() { return board[rows].length; }
-
-  public int getCols() { return board[cols].length; }
-
-  public CoordinateImpl getBoardLocation(int col, int row) {
-    return board[col][row];
+  public CoordinateImpl getBoardLocation(int row, int col) {
+    return board[row][col];
   }
 
   public CoordinateType getGameBoardType() { return gameBoardType; }
 
   public PieceTypeDescriptor[] getPieceTypeDescriptors() { return pieceTypeDescriptors; }
+
+  public int getRows() { return this.rows; }
+
+  public int getCols() { return this.cols; }
+
+  public void printBoard() {
+    System.out.println("******** Printing Board ********");
+
+    for(int col = 1; col < cols; col++) {
+      for(int row = 1; row < rows; row++) {
+        System.out.print("(");
+        System.out.print(this.board[col][row].getRow() + ", ");
+        System.out.print(this.board[col][row].getColumn() + ") ");
+        System.out.print(this.board[col][row].getLocationType() + " ");
+        System.out.print(this.board[col][row].getPlayer() + " ");
+        System.out.println(this.board[col][row].getPieceName());
+      }
+    }
+  }
 }

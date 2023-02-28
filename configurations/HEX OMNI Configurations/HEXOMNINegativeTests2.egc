@@ -6,14 +6,16 @@ Players : Chris Pat
 Locations :
     (1, 1) CLEAR
     (4, 4) clear Chris frog
+    (4, 3) block
+    (4, 5) block
     (5, 12) exit
 
 Piece Descriptors :
-    SNAIL orthogonal [distance 2]
+    SNAIL orthogonal [distance 4]
     DOG linear [distance 5]
     HORSE diagonal [distance 7, jump]
     bird linear [fly, distance 5]
-    frog omni [distance 3, unblock]
+    frog omni [distance 4, unblock]
 
 Rules :
     SCORE 10

@@ -109,11 +109,6 @@ public class EscapeGameBuilder {
      ***********************************************************************/
 	public EscapeGameManager makeGameManager() {
 		//Create and set the game manager
-//		System.out.println(gameInitializer.getxMax());
-//		System.out.println(gameInitializer.getyMax());
-//		System.out.println(gameInitializer.getPlayers().length);
-//		System.out.println(gameInitializer.getLocationInitializers().length);
-//		System.out.println(gameInitializer.getPieceTypes().length);
 		EscapeGameManagerImpl gameManager =
 				new EscapeGameManagerImpl(gameInitializer.getxMax(), gameInitializer.getyMax(),
 																	gameInitializer.getPlayers(), gameInitializer.getCoordinateType(),

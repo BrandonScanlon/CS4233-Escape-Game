@@ -3,6 +3,7 @@ package escape;
 import escape.builder.LocationInitializer;
 import escape.builder.PieceTypeDescriptor;
 import escape.required.Coordinate.CoordinateType;
+import escape.required.EscapeException;
 import escape.required.LocationType;
 import org.stringtemplate.v4.misc.Coordinate;
 
@@ -56,12 +57,7 @@ public class SquareGameBoard implements GameBoard {
     board[col][row].setLocationType(locationInitializer.locationType);
   }
 
-  public CoordinateImpl getBoardLocation(int col, int row) {
-    if(row <= 0 || col <= 0 || row >= rows || col >= cols){
-      throw new IllegalArgumentException("Invalid location");
-    }
-    return board[col][row];
-  }
+  public CoordinateImpl getBoardLocation(int col, int row) { return board[col][row]; }
 
   public CoordinateType getGameBoardType() { return gameBoardType; }
 

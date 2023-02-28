@@ -3,15 +3,11 @@ package escape;
 // Imports
 //**************************************************
 import escape.builder.PieceTypeDescriptor;
-import escape.required.Coordinate;
 import escape.required.EscapePiece;
 import escape.required.EscapePiece.MovementPattern;
 import escape.required.LocationType;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Move<i> {
+public class Move {
   GameStatusImpl gameStatus;
   MovementPattern movementPattern;
   PieceTypeDescriptor descriptor;
@@ -27,12 +23,6 @@ public class Move<i> {
   CoordinateImpl startingCoord;
   int maxDistance;
   int moves = 0;
-  CoordinateImpl previousLocation;
-  List<CoordinateImpl> movesMade = new ArrayList<CoordinateImpl>();
-  static CoordinateImpl tempFrom;
-
-
-
 
 
   // Contructor
@@ -52,7 +42,7 @@ public class Move<i> {
 
   public GameStatusImpl movePiece(){
     switch(movementPattern) {
-/********************************************************************** ORTHOGONAL ****************************************************************/
+/*********************************************************** ORTHOGONAL ****************************************************************/
       case ORTHOGONAL:
         // Move by row or column only
         while(deltaRow != 0 || deltaCol != 0) {
@@ -64,49 +54,41 @@ public class Move<i> {
             if(((deltaRow > deltaCol && deltaRow > 0) || (deltaRow == deltaCol && deltaRow > 0)) && !checkForObstacles(tempGameBoard, upCoord)) {
               moveUp();
               moves++;
-              movesMade.add(newFrom);
               continue;
             }
             /** Right **/
             if((deltaRow <= 0 && deltaCol > 0 && ((Math.abs(deltaRow) <= Math.abs(deltaCol))) && !checkForObstacles(tempGameBoard, rightCoord))) {
               moveRight();
               moves++;
-              movesMade.add(newFrom);
               continue;
             }
             /** Down **/
             if(((deltaRow < deltaCol && deltaRow < 0) || (deltaRow == deltaCol && deltaRow < 0)) && !checkForObstacles(tempGameBoard, downCoord)) {
               moveDown();
               moves++;
-              movesMade.add(newFrom);
               continue;
             }
             /** Left **/
             if((deltaRow <= 0 && deltaCol < 0 || (Math.abs(deltaRow) > Math.abs(deltaCol))) && !checkForObstacles(tempGameBoard, leftCoord)) {
               moveLeft();
               moves++;
-              movesMade.add(newFrom);
               continue;
             }
           if(deltaCol == 0 && !checkForObstacles(tempGameBoard, rightCoord)) {
             moveRight();
             moves++;
-            movesMade.add(newFrom);
             continue;
           } else if(deltaCol == 0 && !checkForObstacles(tempGameBoard, leftCoord)) {
             moveLeft();
             moves++;
-            movesMade.add(newFrom);
             continue;
           } else if(deltaRow == 0 && !checkForObstacles(tempGameBoard, upCoord)) {
             moveUp();
             moves++;
-            movesMade.add(newFrom);
             continue;
           } else if(deltaRow == 0 && !checkForObstacles(tempGameBoard, downCoord)) {
             moveDown();
             moves++;
-            movesMade.add(newFrom);
             continue;
           } else {
             gameStatus.setValidMove(false);
@@ -118,7 +100,6 @@ public class Move<i> {
           gameStatus.setValidMove(true);
           return gameStatus;
         }
-
       if(deltaRow == prevDeltaRow && deltaCol == prevDeltaCol || moves > maxDistance){
         gameStatus.setValidMove(false);
         newFrom = startingCoord;
@@ -132,147 +113,89 @@ public class Move<i> {
         prevDeltaCol = deltaCol;
       }
       break;
-      /******************************************************************* OMNI *************************************************************************/
+/******************************************************** OMNI *************************************************************************/
       case OMNI:
-        // Move straight by only row, column, or diagonally. Can't change direction
+        // Move by row, column, or diagonally
         while(deltaRow != 0 || deltaCol != 0) {
           CoordinateImpl upCoord = tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn());
           CoordinateImpl downCoord = tempGameBoard.getBoardLocation(newFrom.getRow() - 1, newFrom.getColumn());
           CoordinateImpl rightCoord = tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn() + 1);
           CoordinateImpl leftCoord = tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn() - 1);
 
+          CoordinateImpl upRightCoord = tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn() + 1);
+          CoordinateImpl upLeftCoord = tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn() - 1);
+          CoordinateImpl downRightCoord = tempGameBoard.getBoardLocation(newFrom.getRow() - 1, newFrom.getColumn() + 1);
+          CoordinateImpl downLeftCoord = tempGameBoard.getBoardLocation(newFrom.getRow() - 1, newFrom.getColumn() - 1);
 
-//          if(deltaRow == deltaCol) {
-//            if(deltaRow > 0 && deltaCol > 0 && (direction == "NONE" || direction == "UPRIGHT")) { // Move Up right
-//              if(tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).getPieceName() == EscapePiece.PieceName.BIRD) {
-//                moveUpRight();
-//              } else {
-//                if(tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn()).getLocationType() != LocationType.CLEAR) {
-//                  gameStatus.setValidMove(false);
-//                  return gameStatus;
-//                } else {
-//                  CoordinateImpl upRightCoord = tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn() + 1);
-//                  if(checkForObstacles(tempGameBoard, upRightCoord)) {
-//                    gameStatus.setValidMove(false);
-//                    return gameStatus;
-//                  } else {
-//                    moveUpRight();
-//                  }
-//                }
-//              }
-//            } else if(deltaRow < 0 && deltaCol < 0 && (direction == "NONE" || direction == "DOWNLEFT")) { // Move Down left
-//              if(tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).getPieceName() == EscapePiece.PieceName.BIRD) {
-//                moveDownLeft();
-//              } else {
-//                if(tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn()).getLocationType() != LocationType.CLEAR) {
-//                  gameStatus.setValidMove(false);
-//                  return gameStatus;
-//                } else {
-//                  CoordinateImpl downLeftCoord = tempGameBoard.getBoardLocation(newFrom.getRow() - 1, newFrom.getColumn() - 1);
-//                  if(checkForObstacles(tempGameBoard, downLeftCoord)) {
-//                    gameStatus.setValidMove(false);
-//                    return gameStatus;
-//                  } else {
-//                    moveDownLeft();
-//                  }
-//                }
-//              }
-//            }
-//          }
-//          if(deltaRow == deltaCol - 2 && deltaRow != 0 && deltaCol != 0 && (direction == "NONE" || direction == "DOWNRIGHT")) { // Move down right
-//            if(tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).getPieceName() == EscapePiece.PieceName.BIRD) {
-//              moveDownRight();
-//            } else {
-//              if(tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn()).getLocationType() != LocationType.CLEAR) {
-//                gameStatus.setValidMove(false);
-//                return gameStatus;
-//              } else {
-//                CoordinateImpl downRightCoord =  tempGameBoard.getBoardLocation(newFrom.getRow() - 1, newFrom.getColumn() + 1);
-//                if(checkForObstacles(tempGameBoard, downRightCoord)) {
-//                  gameStatus.setValidMove(false);
-//                  return gameStatus;
-//                } else {
-//                  moveDownRight();
-//                }
-//              }
-//            }
-//          } else if(deltaRow == deltaCol + 2 && deltaRow != 0 && deltaCol != 0 && (direction == "NONE" || direction == "UPLEFT")) { // Move up left
-//            if(tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).getPieceName() == EscapePiece.PieceName.BIRD) {
-//              moveUpLeft();
-//            } else {
-//              if(tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn()).getLocationType() != LocationType.CLEAR) {
-//                gameStatus.setValidMove(false);
-//                return gameStatus;
-//              } else {
-//                CoordinateImpl upLeftCoord = tempGameBoard.getBoardLocation(newFrom.getRow() + 1, newFrom.getColumn() - 1);
-//                if(checkForObstacles(tempGameBoard, upLeftCoord)) {
-//                  gameStatus.setValidMove(false);
-//                  return gameStatus;
-//                } else {
-//                  moveUpLeft();
-//                }
-//              }
-//            }
-//          }
-
-
-
-          /** Up Right **/
-
-          /** Up Left **/
-
+          if(deltaRow == deltaCol) {
+            /** Up Right **/
+            if(deltaRow > 0 && !checkForObstacles(tempGameBoard, upRightCoord)) {
+              moveUpRight();
+              moves++;
+              continue;
+            }
+            /** Down Left **/
+            else if (deltaRow < 0 && !checkForObstacles(tempGameBoard, downLeftCoord)) {
+              moveDownLeft();
+              moves++;
+              continue;
+            }
+          }
           /** Down Right **/
-
-          /** Down Left **/
-
-
+          else if(deltaRow == deltaCol - 2 && deltaRow != 0 && deltaCol != 0) {
+            if(!checkForObstacles(tempGameBoard, downRightCoord)) {
+              moveDownRight();
+              moves++;
+              continue;
+            }
+          }
+          /** Up Left **/
+          else if(deltaRow == deltaCol + 2 && deltaRow != 0 && deltaCol != 0) {
+            if(!checkForObstacles(tempGameBoard, upLeftCoord)) {
+              moveUpLeft();
+              moves++;
+              continue;
+            }
+          }
           /** Up **/
-          if(((deltaRow > deltaCol && deltaRow > 0) || (deltaRow == deltaCol && deltaRow > 0)) && !checkForObstacles(tempGameBoard, upCoord)) {
+          if((deltaRow > deltaCol && deltaRow > 0) && !checkForObstacles(tempGameBoard, upCoord)) {
             moveUp();
             moves++;
-            movesMade.add(newFrom);
             continue;
           }
           /** Right **/
           if((deltaRow <= 0 && deltaCol > 0 && ((Math.abs(deltaRow) <= Math.abs(deltaCol))) && !checkForObstacles(tempGameBoard, rightCoord))) {
             moveRight();
             moves++;
-            movesMade.add(newFrom);
             continue;
           }
           /** Down **/
-          if(((deltaRow < deltaCol && deltaRow < 0) || (deltaRow == deltaCol && deltaRow < 0)) && !checkForObstacles(tempGameBoard, downCoord)) {
+          if((deltaRow < deltaCol && deltaRow < 0) && !checkForObstacles(tempGameBoard, downCoord)) {
             moveDown();
             moves++;
-            movesMade.add(newFrom);
             continue;
           }
           /** Left **/
           if((deltaRow <= 0 && deltaCol < 0 || (Math.abs(deltaRow) > Math.abs(deltaCol))) && !checkForObstacles(tempGameBoard, leftCoord)) {
             moveLeft();
             moves++;
-            movesMade.add(newFrom);
             continue;
           }
           if(deltaCol == 0 && !checkForObstacles(tempGameBoard, rightCoord)) {
             moveRight();
             moves++;
-            movesMade.add(newFrom);
             continue;
           } else if(deltaCol == 0 && !checkForObstacles(tempGameBoard, leftCoord)) {
             moveLeft();
             moves++;
-            movesMade.add(newFrom);
             continue;
           } else if(deltaRow == 0 && !checkForObstacles(tempGameBoard, upCoord)) {
             moveUp();
             moves++;
-            movesMade.add(newFrom);
             continue;
           } else if(deltaRow == 0 && !checkForObstacles(tempGameBoard, downCoord)) {
             moveDown();
             moves++;
-            movesMade.add(newFrom);
             continue;
           } else {
             gameStatus.setValidMove(false);
@@ -298,48 +221,7 @@ public class Move<i> {
           prevDeltaCol = deltaCol;
         }
         break;
-//        while(deltaRow != 0 || deltaCol != 0) {
-//          /** Move Diagonally **/
-//          if(deltaRow == deltaCol) {
-//            if(deltaRow > 0 && deltaCol > 0) { // Move Up right
-//              moveUpRight();
-//            }
-//            if(deltaRow < 0 && deltaCol < 0) { // Move Down left
-//              moveDownLeft();
-//            }
-//          }
-//          /** Move Diagonally **/
-//          if(deltaRow == deltaCol - 2 && deltaRow != 0 && deltaCol != 0) { // Move down right
-//            moveDownRight();
-//          }
-//          if(deltaRow == deltaCol + 2 && deltaRow != 0 && deltaCol != 0) { // Move up left
-//            moveUpLeft();
-//          }
-//          /** Move Row **/
-//          if(deltaRow > deltaCol || (deltaRow < 0 && deltaCol >= 0)) {
-//            if(deltaRow > 0) { // Move Up
-//              moveUp();
-//            }
-//            if(deltaRow < 0) { // Move Down
-//              moveDown();
-//            }
-//          }
-//          /** Move Column **/
-//          if(deltaRow < deltaCol || (deltaRow >= 0 && deltaCol < 0)) {
-//            if(deltaCol < 0) { // Move Left
-//              moveLeft();
-//            }
-//            if(deltaCol > 0) { // Move Right
-//              moveRight();
-//            }
-//          }
-//        }
-//        if(deltaRow == 0 && deltaCol == 0){
-//          gameStatus.setValidMove(true);
-//          return gameStatus;
-//        }
-//        break;
-/***************************************************************** LINEAR *************************************************************************/
+/******************************************************** LINEAR *************************************************************************/
       case LINEAR:
         // Move straight by only row, column, or diagonally. Can't change direction
         direction = "NONE";
@@ -508,9 +390,9 @@ public class Move<i> {
           }
         }
         break;
-/********************************************************************* DIAGONAL *******************************************************************/
+/********************************************************** DIAGONAL *******************************************************************/
       case DIAGONAL:
-        // Move straight by only row, column, or diagonally. Can't change direction
+        // Move diagonally
         direction = "NONE";
         prevDeltaRow = deltaRow;
         prevDeltaCol = deltaCol;
@@ -618,6 +500,7 @@ public class Move<i> {
     }
   }
 
+  /** MOVES **/
   public void moveUp(){
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
@@ -628,7 +511,6 @@ public class Move<i> {
     deltaRow--;
     direction = "UP";
   }
-
   public void moveDown(){
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
@@ -637,7 +519,6 @@ public class Move<i> {
     newFrom.setRow(newFrom.getRow() - 1);
     deltaRow++;
   }
-
   public void moveLeft(){
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
@@ -648,7 +529,6 @@ public class Move<i> {
     deltaCol++;
     direction = "LEFT";
   }
-
   public void moveRight(){
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
@@ -659,7 +539,6 @@ public class Move<i> {
     deltaCol--;
     direction = "RIGHT";
   }
-
   public void moveUpLeft(){
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
@@ -672,7 +551,6 @@ public class Move<i> {
     deltaCol++;
     direction = "UPLEFT";
   }
-
   public void moveUpRight(){
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
@@ -685,7 +563,6 @@ public class Move<i> {
     deltaCol--;
     direction = "UPRIGHT";
   }
-
   public void moveDownLeft(){
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);
@@ -698,7 +575,6 @@ public class Move<i> {
     deltaCol++;
     direction = "DOWNLEFT";
   }
-
   public void moveDownRight(){
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPieceName(null);
     tempGameBoard.getBoardLocation(newFrom.getRow(), newFrom.getColumn()).setPlayer(null);

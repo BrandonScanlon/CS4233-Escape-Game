@@ -7,90 +7,15 @@ import escape.required.EscapePiece.PieceName;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class OmniMovementTests {
+public class HEXOMNIMovementTests {
 
-  /********************** OMNI MOVEMENT TESTS **********************/
+  /********************** HEXOMNI MOVEMENT TESTS **********************/
   //***************************************************************************************************************************
-  @Test /** 55 **/
-  void checkMoveOmniUp() {
+  @Test /** 87 **/
+  void checkMoveHEXOMNIUp() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config9.egc").makeGameManager();
-    } catch (Exception e){
-      fail("Exception from escape builder: " + e.getMessage());
-    }
-    assertNotNull(egm);
-
-    CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.FROG);
-    coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(4, 6);
-    coordB.setPieceName(null);
-    coordB.setPlayer(null);
-
-    GameStatusImpl status = new GameStatusImpl();
-    status.setValidMove(true);
-
-    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
-    assertEquals(coordA.getRow(), coordB.getRow());
-    assertEquals(coordA.getColumn(), coordB.getColumn());
-  }
-  //***************************************************************************************************************************
-  @Test /** 56 **/
-  void checkMoveOmniDown() {
-    EscapeGameManagerImpl egm = null;
-    try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config9.egc").makeGameManager();
-    } catch (Exception e){
-      fail("Exception from escape builder: " + e.getMessage());
-    }
-    assertNotNull(egm);
-
-    CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.FROG);
-    coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(4, 2);
-    coordB.setPieceName(null);
-    coordB.setPlayer(null);
-
-    GameStatusImpl status = new GameStatusImpl();
-    status.setValidMove(true);
-
-    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
-    assertEquals(coordA.getRow(), coordB.getRow());
-    assertEquals(coordA.getColumn(), coordB.getColumn());
-  }
-  //***************************************************************************************************************************
-  @Test /** 57 **/
-  void checkMoveOmniLeft() {
-    EscapeGameManagerImpl egm = null;
-    try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config9.egc").makeGameManager();
-    } catch (Exception e){
-      fail("Exception from escape builder: " + e.getMessage());
-    }
-    assertNotNull(egm);
-
-    CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.FROG);
-    coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(2, 4);
-    coordB.setPieceName(null);
-    coordB.setPlayer(null);
-
-    GameStatusImpl status = new GameStatusImpl();
-    status.setValidMove(true);
-
-    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
-    assertEquals(coordA.getRow(), coordB.getRow());
-    assertEquals(coordA.getColumn(), coordB.getColumn());
-  }
-  //***************************************************************************************************************************
-  @Test /** 58 **/
-  void checkMoveOmniRight() {
-    EscapeGameManagerImpl egm = null;
-    try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config9.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEXOMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -109,14 +34,15 @@ public class OmniMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
-
   //***************************************************************************************************************************
-  @Test /** 59 **/
-  void checkMoveOmniUpRight() {
+  @Test /** 88 **/
+  void checkMoveHEXOMNIDown() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config9.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEXOMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -125,7 +51,7 @@ public class OmniMovementTests {
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
     coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(5, 5);
+    CoordinateImpl coordB = egm.makeCoordinate(2, 4);
     coordB.setPieceName(null);
     coordB.setPlayer(null);
 
@@ -135,13 +61,15 @@ public class OmniMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 60 **/
-  void checkMoveOmniUpLeft() {
+  @Test /** 89 **/
+  void checkMoveHEXOMNILeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config9.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEXOMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -150,7 +78,7 @@ public class OmniMovementTests {
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
     coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(3, 5);
+    CoordinateImpl coordB = egm.makeCoordinate(4, 2);
     coordB.setPieceName(null);
     coordB.setPlayer(null);
 
@@ -160,13 +88,15 @@ public class OmniMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 61 **/
-  void checkMoveOmniDownRight() {
+  @Test /** 90 **/
+  void checkMoveHEXOMNIRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config9.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEXOMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -175,7 +105,7 @@ public class OmniMovementTests {
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
     coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(5, 3);
+    CoordinateImpl coordB = egm.makeCoordinate(4, 6);
     coordB.setPieceName(null);
     coordB.setPlayer(null);
 
@@ -185,13 +115,16 @@ public class OmniMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
+
   //***************************************************************************************************************************
-  @Test /** 62 **/
-  void checkMoveOmniDownLeft() {
+  @Test /** 91 **/
+  void checkMoveHEXOMNIUpRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config9.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEXOMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -200,7 +133,7 @@ public class OmniMovementTests {
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
     coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(3, 3);
+    CoordinateImpl coordB = egm.makeCoordinate(6, 6);
     coordB.setPieceName(null);
     coordB.setPlayer(null);
 
@@ -210,13 +143,96 @@ public class OmniMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 63 **/
-  void checkMoveOmniUpUpRight() {
+  @Test /** 92 **/
+  void checkMoveHEXOMNIUpLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config9.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEXOMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
+    } catch (Exception e){
+      fail("Exception from escape builder: " + e.getMessage());
+    }
+    assertNotNull(egm);
+
+    CoordinateImpl coordA = egm.makeCoordinate(4, 4);
+    coordA.setPieceName(PieceName.FROG);
+    coordA.setPlayer("Chris");
+    CoordinateImpl coordB = egm.makeCoordinate(6, 2);
+    coordB.setPieceName(null);
+    coordB.setPlayer(null);
+
+    GameStatusImpl status = new GameStatusImpl();
+    status.setValidMove(true);
+
+    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
+    assertEquals(coordA.getRow(), coordB.getRow());
+    assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
+  }
+  //***************************************************************************************************************************
+  @Test /** 93 **/
+  void checkMoveHEXOMNIDownRight() {
+    EscapeGameManagerImpl egm = null;
+    try{
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEXOMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
+    } catch (Exception e){
+      fail("Exception from escape builder: " + e.getMessage());
+    }
+    assertNotNull(egm);
+
+    CoordinateImpl coordA = egm.makeCoordinate(4, 4);
+    coordA.setPieceName(PieceName.FROG);
+    coordA.setPlayer("Chris");
+    CoordinateImpl coordB = egm.makeCoordinate(2, 6);
+    coordB.setPieceName(null);
+    coordB.setPlayer(null);
+
+    GameStatusImpl status = new GameStatusImpl();
+    status.setValidMove(true);
+
+    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
+    assertEquals(coordA.getRow(), coordB.getRow());
+    assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
+  }
+  //***************************************************************************************************************************
+  @Test /** 94 **/
+  void checkMoveHEXOMNIDownLeft() {
+    EscapeGameManagerImpl egm = null;
+    try{
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEXOMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
+    } catch (Exception e){
+      fail("Exception from escape builder: " + e.getMessage());
+    }
+    assertNotNull(egm);
+
+    CoordinateImpl coordA = egm.makeCoordinate(4, 4);
+    coordA.setPieceName(PieceName.FROG);
+    coordA.setPlayer("Chris");
+    CoordinateImpl coordB = egm.makeCoordinate(2, 2);
+    coordB.setPieceName(null);
+    coordB.setPlayer(null);
+
+    GameStatusImpl status = new GameStatusImpl();
+    status.setValidMove(true);
+
+    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
+    assertEquals(coordA.getRow(), coordB.getRow());
+    assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
+  }
+  //***************************************************************************************************************************
+  @Test /** 95 **/
+  void checkMoveHEXOMNIUpUpRight() {
+    EscapeGameManagerImpl egm = null;
+    try{
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEXOMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -235,13 +251,15 @@ public class OmniMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 64 **/
-  void checkMoveOmniUpUpLeft() {
+  @Test /** 96 **/
+  void checkMoveHEXOMNIUpUpLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config9.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEXOMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -250,7 +268,7 @@ public class OmniMovementTests {
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
     coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(3, 6);
+    CoordinateImpl coordB = egm.makeCoordinate(6, 3);
     coordB.setPieceName(null);
     coordB.setPlayer(null);
 
@@ -260,13 +278,15 @@ public class OmniMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 65 **/
-  void checkMoveOmniDownDownRight() {
+  @Test /** 97 **/
+  void checkMoveHEXOMNIDownDownRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config9.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEXOMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -285,13 +305,15 @@ public class OmniMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 66 **/
-  void checkMoveOmniDownDownLeft() {
+  @Test /** 98 **/
+  void checkMoveHEXOMNIDownDownLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config9.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEXOMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -300,7 +322,7 @@ public class OmniMovementTests {
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
     coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(3, 2);
+    CoordinateImpl coordB = egm.makeCoordinate(2, 3);
     coordB.setPieceName(null);
     coordB.setPlayer(null);
 
@@ -310,28 +332,7 @@ public class OmniMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
-  }
-  //***************************************************************************************************************************
-  @Test /** 67 **/
-  void checkMoveOmniTooFar() {
-    EscapeGameManagerImpl egm = null;
-    try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config9.egc").makeGameManager();
-    } catch (Exception e){
-      fail("Exception from escape builder: " + e.getMessage());
-    }
-    assertNotNull(egm);
-
-    CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.FROG);
-    coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(8, 8);
-    coordB.setPieceName(null);
-    coordB.setPlayer(null);
-
-    GameStatusImpl status = new GameStatusImpl();
-    status.setValidMove(false);
-
-    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
 }
