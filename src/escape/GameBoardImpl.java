@@ -2,8 +2,8 @@ package escape;
 
 // Imports
 //**************************************
-import escape.builder.LocationInitializer;
-import escape.builder.PieceTypeDescriptor;
+import escape.Builder.LocationInitializer;
+import escape.Builder.PieceTypeDescriptor;
 import escape.required.Coordinate.CoordinateType;
 
 public class GameBoardImpl {

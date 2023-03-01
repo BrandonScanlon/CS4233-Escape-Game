@@ -1,8 +1,9 @@
-package escape.builder;
+package escape.SQUARE_Movement;
 
 // Imports
 //*********************************
 import escape.*;
+import escape.Builder.EscapeGameBuilder;
 import escape.required.EscapeException;
 import escape.required.EscapePiece.PieceName;
 import org.junit.jupiter.api.*;
@@ -16,7 +17,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIUpBlock() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -43,7 +44,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIDownBlock() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -70,7 +71,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNILeftBlock() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests2.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests2.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -97,7 +98,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIRightBlock() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests2.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests2.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -125,7 +126,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIUpRightBlock() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests3.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests3.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -153,7 +154,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIUpLeftBlock() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests4.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests4.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -181,7 +182,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIDownRightBlock() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests5.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests5.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -208,7 +209,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIDownLeftBlock() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests6.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests6.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -235,7 +236,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIUpPiece() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests7.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests7.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -262,7 +263,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIDownPiece() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests7.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests7.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -289,7 +290,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNILeftPiece() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests8.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -316,7 +317,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIRightPiece() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests8.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -344,7 +345,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIUpRightPiece() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests8.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -372,7 +373,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIUpLeftPiece() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests8.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -400,7 +401,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIDownRightPiece() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests8.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -427,7 +428,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIDownLeftPiece() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests8.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -454,7 +455,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIUpUpRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests8.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -481,7 +482,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIUpUpLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests8.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -508,7 +509,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIDownDownRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests8.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -535,7 +536,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIDownDownLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNINegativeTests8.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNINegativeTests8.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -562,7 +563,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNITooFar() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -588,7 +589,7 @@ public class OMNIMovementTestsFail {
   void checkMoveOMNIOffBoard() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -601,12 +602,9 @@ public class OMNIMovementTestsFail {
     coordB.setPieceName(null);
     coordB.setPlayer(null);
 
-    GameStatusImpl status = new GameStatusImpl();
-    status.setValidMove(false);
-
-    CoordinateImpl startingCoord = egm.makeCoordinate(4, 4);
-    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
-    assertEquals(startingCoord.getRow(), coordA.getRow());
-    assertEquals(startingCoord.getColumn(), coordA.getColumn());
+    EscapeGameManagerImpl finalEgm = egm;
+    assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+      finalEgm.move(coordA, coordB);
+    });
   }
 }

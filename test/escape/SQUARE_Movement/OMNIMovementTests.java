@@ -1,30 +1,29 @@
-package escape.builder;
+package escape.SQUARE_Movement;
 
 // Imports
 //*********************************
 import escape.*;
+import escape.Builder.EscapeGameBuilder;
 import escape.required.EscapePiece.PieceName;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+public class OMNIMovementTests {
 
-public class OrthogonalMovementTests {
-
-  /********************** ORTHOGONAL MOVEMENT TESTS **********************/
+  /********************** OMNI MOVEMENT TESTS **********************/
   //***************************************************************************************************************************
-  @Test
-  /** 60 **/
-  void checkMoveOrthogonalUp() {
+  @Test /** 87 **/
+  void checkMoveOmniUp() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.SNAIL);
+    coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
     CoordinateImpl coordB = egm.makeCoordinate(6, 4);
     coordB.setPieceName(null);
@@ -36,20 +35,22 @@ public class OrthogonalMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 61 **/
-  void checkMoveOrthogonalDown() {
+  @Test /** 88 **/
+  void checkMoveOmniDown() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.SNAIL);
+    coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
     CoordinateImpl coordB = egm.makeCoordinate(2, 4);
     coordB.setPieceName(null);
@@ -61,20 +62,22 @@ public class OrthogonalMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 62 **/
-  void checkMoveOrthogonalLeft() {
+  @Test /** 89 **/
+  void checkMoveOmniLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.SNAIL);
+    coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
     CoordinateImpl coordB = egm.makeCoordinate(4, 2);
     coordB.setPieceName(null);
@@ -86,20 +89,22 @@ public class OrthogonalMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 63 **/
-  void checkMoveOrthogonalRight() {
+  @Test /** 90 **/
+  void checkMoveOmniRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.SNAIL);
+    coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
     CoordinateImpl coordB = egm.makeCoordinate(4, 6);
     coordB.setPieceName(null);
@@ -111,22 +116,25 @@ public class OrthogonalMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
+
   //***************************************************************************************************************************
-  @Test /** 64 **/
-  void checkMoveOrthogonalUpRight() {
+  @Test /** 91 **/
+  void checkMoveOmniUpRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.SNAIL);
+    coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(5, 5);
+    CoordinateImpl coordB = egm.makeCoordinate(6, 6);
     coordB.setPieceName(null);
     coordB.setPlayer(null);
 
@@ -136,22 +144,24 @@ public class OrthogonalMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 65 **/
-  void checkMoveOrthogonalUpLeft() {
+  @Test /** 92 **/
+  void checkMoveOmniUpLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.SNAIL);
+    coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(5, 3);
+    CoordinateImpl coordB = egm.makeCoordinate(6, 2);
     coordB.setPieceName(null);
     coordB.setPlayer(null);
 
@@ -161,22 +171,24 @@ public class OrthogonalMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 66 **/
-  void checkMoveOrthogonalDownRight() {
+  @Test /** 93 **/
+  void checkMoveOmniDownRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.SNAIL);
+    coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(3, 5);
+    CoordinateImpl coordB = egm.makeCoordinate(2, 6);
     coordB.setPieceName(null);
     coordB.setPlayer(null);
 
@@ -186,22 +198,24 @@ public class OrthogonalMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 67 **/
-  void checkMoveOrthogonalDownLeft() {
+  @Test /** 94 **/
+  void checkMoveOmniDownLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.SNAIL);
+    coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(3, 3);
+    CoordinateImpl coordB = egm.makeCoordinate(2, 2);
     coordB.setPieceName(null);
     coordB.setPlayer(null);
 
@@ -211,20 +225,22 @@ public class OrthogonalMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 68 **/
-  void checkMoveOrthogonalUpUpRight() {
+  @Test /** 95 **/
+  void checkMoveOmniUpUpRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests2.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.SNAIL);
+    coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
     CoordinateImpl coordB = egm.makeCoordinate(6, 5);
     coordB.setPieceName(null);
@@ -236,20 +252,22 @@ public class OrthogonalMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 69 **/
-  void checkMoveOrthogonalUpUpLeft() {
+  @Test /** 96 **/
+  void checkMoveOmniUpUpLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests2.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.SNAIL);
+    coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
     CoordinateImpl coordB = egm.makeCoordinate(6, 3);
     coordB.setPieceName(null);
@@ -261,20 +279,22 @@ public class OrthogonalMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 70 **/
-  void checkMoveOrthogonalDownDownRight() {
+  @Test /** 97 **/
+  void checkMoveOmniDownDownRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests2.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.SNAIL);
+    coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
     CoordinateImpl coordB = egm.makeCoordinate(2, 5);
     coordB.setPieceName(null);
@@ -286,20 +306,22 @@ public class OrthogonalMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 71 **/
-  void checkMoveOrthogonalDownDownLeft() {
+  @Test /** 98 **/
+  void checkMoveOmniDownDownLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/Orthogonal Configurations/OrthogonalPositiveTests2.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
     CoordinateImpl coordA = egm.makeCoordinate(4, 4);
-    coordA.setPieceName(PieceName.SNAIL);
+    coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
     CoordinateImpl coordB = egm.makeCoordinate(2, 3);
     coordB.setPieceName(null);
@@ -311,5 +333,7 @@ public class OrthogonalMovementTests {
     assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
     assertEquals(coordA.getRow(), coordB.getRow());
     assertEquals(coordA.getColumn(), coordB.getColumn());
+    System.out.println("coordA: " + coordA.getRow() + ", " + coordA.getColumn());
+    System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
 }

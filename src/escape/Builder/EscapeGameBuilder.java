@@ -10,15 +10,13 @@
  * Copyright ©2016-2023 Gary F. Pollice
  *******************************************************************************/
 
-package escape.builder;
+package escape.Builder;
 
 import econfig.*;
 import escape.*;
-import escape.required.LocationType;
 import org.antlr.v4.runtime.*;
 
 import javax.xml.bind.*;
-import javax.xml.stream.Location;
 import javax.xml.transform.stream.*;
 import java.io.*;
 
@@ -64,7 +62,7 @@ public class EscapeGameBuilder {
     public EscapeGameBuilder(String fileName) throws Exception {
     	String xmlConfiguration = getXmlConfiguration(fileName);
     	// Uncomment the next instruction if you want to see the XML
-    	// System.err.println(xmlConfiguration);
+    	//System.err.println(xmlConfiguration);
         gameInitializer = unmarshalXml(xmlConfiguration);
     }
 
@@ -112,7 +110,8 @@ public class EscapeGameBuilder {
 		EscapeGameManagerImpl gameManager =
 				new EscapeGameManagerImpl(gameInitializer.getxMax(), gameInitializer.getyMax(),
 																	gameInitializer.getPlayers(), gameInitializer.getCoordinateType(),
-																	gameInitializer.getLocationInitializers(), gameInitializer.getPieceTypes());
+																	gameInitializer.getLocationInitializers(), gameInitializer.getPieceTypes(),
+																	gameInitializer.getRules());
 		return gameManager;
 	}
 }

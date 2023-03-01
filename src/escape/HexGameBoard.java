@@ -1,10 +1,9 @@
 package escape;
 
-import escape.builder.LocationInitializer;
-import escape.builder.PieceTypeDescriptor;
+import escape.Builder.LocationInitializer;
+import escape.Builder.PieceTypeDescriptor;
 import escape.required.Coordinate.CoordinateType;
 import escape.required.LocationType;
-import org.stringtemplate.v4.misc.Coordinate;
 
 public class HexGameBoard implements GameBoard {
   // Global Variables
@@ -28,17 +27,18 @@ public class HexGameBoard implements GameBoard {
     this.pieceTypeDescriptors = pieceTypeDescriptors;
 
     // Create game board
-    board = new CoordinateImpl[rows][cols];
+    board = new CoordinateImpl[cols][rows];
 
     // Set all locations on the game board to CLEAR to start
-    for(int row = 1; row < rows; row++) {
-      for(int col = 1; col < cols; col++) {
+    for(int row = (rows * -1)/2; row < rows/2; row++) {
+      for(int col = (cols * -1)/2; col < cols/2; col++) {
         board[col][row] = new CoordinateImpl(row, col);
         board[col][row].setLocationType(LocationType.CLEAR);
         board[col][row].setPlayer(null);
         board[col][row].setPieceName(null);
       }
     }
+
     for(LocationInitializer obstacle : obstacleLocations) {
       //System.out.println("Obstacle found at: " + obstacle.x + ", " + obstacle.y);
       board[obstacle.x][obstacle.y] = new CoordinateImpl(obstacle.x, obstacle.y);
@@ -50,12 +50,14 @@ public class HexGameBoard implements GameBoard {
 
   // Methods
   //******************************************************************
-  public void setBoardLocation(int row, int col, LocationInitializer locationInitializer) {
+  public void setBoardLocation(int col, int row, LocationInitializer locationInitializer) {
     board[col][row].setLocationType(locationInitializer.locationType);
   }
 
   public CoordinateImpl getBoardLocation(int row, int col) {
-    return board[row][col];
+    System.out.println(col);
+    System.out.println(row + "\n");
+    return board[col][row];
   }
 
   public CoordinateType getGameBoardType() { return gameBoardType; }
@@ -69,8 +71,8 @@ public class HexGameBoard implements GameBoard {
   public void printBoard() {
     System.out.println("******** Printing Board ********");
 
-    for(int col = 1; col < cols; col++) {
-      for(int row = 1; row < rows; row++) {
+    for(int col = 0; col < cols; col++) {
+      for(int row = 0; row < rows; row++) {
         System.out.print("(");
         System.out.print(this.board[col][row].getRow() + ", ");
         System.out.print(this.board[col][row].getColumn() + ") ");

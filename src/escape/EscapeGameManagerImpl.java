@@ -3,8 +3,9 @@ package escape;
 // Imports
 //**************************************
 
-import escape.builder.LocationInitializer;
-import escape.builder.PieceTypeDescriptor;
+import escape.Builder.LocationInitializer;
+import escape.Builder.PieceTypeDescriptor;
+import escape.Builder.RuleDescriptor;
 import escape.required.*;
 import escape.required.Coordinate.CoordinateType;
 import escape.required.EscapePiece.MovementPattern;
@@ -21,19 +22,23 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
   private LocationInitializer obstacleLocations[];
   private GameBoardImpl gameBoard;
   private PieceTypeDescriptor[] pieceTypeDescriptors;
-  private int whosTurn = 0;
+  private RuleDescriptor[] ruleDescriptors;
+  private int whosTurn = 1;
   private int maxDistance = 0;
   private CoordinateImpl startingCoord;
+  private int p1Turns = 0;
+  private int p2Turns = 0;
 
   // Constructors
   //**************************************
-  public EscapeGameManagerImpl(int xMax, int yMax, String[] players, CoordinateType coordinateType, LocationInitializer obstacleLocations[], PieceTypeDescriptor[] pieceTypeDescriptors) throws EscapeException {
+  public EscapeGameManagerImpl(int xMax, int yMax, String[] players, CoordinateType coordinateType, LocationInitializer obstacleLocations[], PieceTypeDescriptor[] pieceTypeDescriptors, RuleDescriptor[] ruleDescriptors) throws EscapeException {
     this.rowMax = yMax;
     this.colMax = xMax;
     this.players = players;
     this.coordinateType = coordinateType;
     this.obstacleLocations = obstacleLocations;
     this.pieceTypeDescriptors = pieceTypeDescriptors;
+    this.ruleDescriptors = ruleDescriptors;
 
     if(coordinateType == CoordinateType.SQUARE) {
       SquareGameBoard squareGameBoard = new SquareGameBoard(this.rowMax, this.colMax, obstacleLocations, pieceTypeDescriptors);
@@ -98,6 +103,12 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
     GameBoardImpl gameBoard = this.getGameBoard();
     startingCoord = (CoordinateImpl)from;
 
+    if(whosTurn == 1) {
+      whosTurn = 0;
+    } else {
+      whosTurn = 1;
+    }
+
     /******************** Check if valid move (immediate red flags) ********************/
     // Null Coordinates (Not sure if needed)
     if(from == null || to == null) {
@@ -111,7 +122,7 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
     }
     // There is no piece or player at the from Coordinate
     else if(gameBoard.getBoardLocation(from.getRow(), from.getColumn()).getPieceName() == null ||
-        gameBoard.getBoardLocation(from.getRow(), from.getColumn()).getPlayer() == null) {
+      gameBoard.getBoardLocation(from.getRow(), from.getColumn()).getPlayer() == null) {
       gameStatus.setValidMove(false);
       return gameStatus;
     }
@@ -143,16 +154,32 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
           int deltaCol = to.getColumn() - from.getColumn();
           int distance = 0;
 
-          maxDistance = descriptor.getAttribute(PieceAttributeID.DISTANCE).getValue();
+         //tempGameBoard.printBoard();
 
+         maxDistance = descriptor.getAttribute(PieceAttributeID.DISTANCE).getValue();
+          boolean EXIT = false;
+          boolean BLOCK = false;
           if(tempGameBoard.getBoardLocation(to.getRow(), to.getColumn()).getLocationType() == LocationType.EXIT){
-            gameStatus.setValidMove(false);
-            return gameStatus;
+            EXIT = true;
           } else if (tempGameBoard.getBoardLocation(to.getRow(), to.getColumn()).getLocationType() == LocationType.BLOCK) {
             gameStatus.setValidMove(false);
             return gameStatus;
           }
-
+          int TURNLIMIT = 10000;
+          int SCORE = 1;
+          for(RuleDescriptor rules : ruleDescriptors) {
+            if(rules.ruleId == Rule.RuleID.SCORE){
+              SCORE = rules.ruleValue;
+            }
+            if(rules.ruleId == Rule.RuleID.TURN_LIMIT){
+              TURNLIMIT = rules.ruleValue;
+            }
+          }
+          // No Moves Left
+          if(p1Turns > TURNLIMIT && p2Turns > TURNLIMIT) {
+            gameStatus.setValidMove(false);
+            return gameStatus;
+          }
           if((deltaRow == deltaCol || Math.abs(deltaRow) == Math.abs(deltaCol)) && (movementPattern == MovementPattern.LINEAR || movementPattern == MovementPattern.DIAGONAL || movementPattern == MovementPattern.OMNI)) {
             distance = deltaRow;
           }
@@ -175,6 +202,12 @@ public class EscapeGameManagerImpl<C extends Coordinate> implements EscapeGameMa
           newFrom = startingCoord;
           return gameStatus;
         } else {
+          if(whosTurn == 0){
+            p1Turns++;
+          } else {
+            p2Turns++;
+          }
+          System.out.println("Turns: " + p1Turns + ", " + p2Turns + "\n");
           return gameStatus;
         }
     }

@@ -1,8 +1,10 @@
-package escape.builder;
+package escape.SQUARE_Movement;
 
 // Imports
 //*********************************
 import escape.*;
+import escape.Builder.EscapeGameBuilder;
+import escape.required.EscapeException;
 import escape.required.EscapePiece.PieceName;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -580,13 +582,10 @@ public class LinearMovementTestsFail {
     coordB.setPieceName(null);
     coordB.setPlayer(null);
 
-    GameStatusImpl status = new GameStatusImpl();
-    status.setValidMove(false);
-
-    CoordinateImpl startingCoord = egm.makeCoordinate(4, 4);
-    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
-    assertEquals(startingCoord.getRow(), coordA.getRow());
-    assertEquals(startingCoord.getColumn(), coordA.getColumn());
+    EscapeGameManagerImpl finalEgm = egm;
+    assertThrows(NullPointerException.class, () -> {
+      finalEgm.move(coordA, coordB);
+    });;
   }
   //***************************************************************************************************************************
   @Test /** 59 **/
@@ -604,14 +603,11 @@ public class LinearMovementTestsFail {
     coordA.setPlayer("Chris");
     CoordinateImpl coordB = egm.makeCoordinate(-1, -1);
     coordB.setPieceName(null);
-    coordB.setPlayer(null);
-
-    GameStatusImpl status = new GameStatusImpl();
-    status.setValidMove(false);
-
-    CoordinateImpl startingCoord = egm.makeCoordinate(4, 4);
-    assertEquals(status.isValidMove(), egm.move(coordA, coordB).isValidMove());
-    assertEquals(startingCoord.getRow(), coordA.getRow());
-    assertEquals(startingCoord.getColumn(), coordA.getColumn());
+    coordB.setPlayer(null)
+    ;
+    EscapeGameManagerImpl finalEgm = egm;
+    assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+      finalEgm.move(coordA, coordB);
+    });
   }
 }

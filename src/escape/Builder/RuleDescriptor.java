@@ -10,7 +10,7 @@
  * Copyright ©2016-2023 Gary F. Pollice
  *******************************************************************************/
 
-package escape.builder;
+package escape.Builder;
 
 import escape.required.Rule.*;
 

@@ -1,30 +1,32 @@
-package escape.builder;
+package escape.HEX_Movement;
 
 // Imports
 //*********************************
 import escape.*;
+import escape.Builder.EscapeGameBuilder;
 import escape.required.EscapePiece.PieceName;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class OMNIMovementTests {
+public class HEXOMNIMovementTests {
 
-  /********************** OMNI MOVEMENT TESTS **********************/
+  /********************** HEXOMNI MOVEMENT TESTS **********************/
   //***************************************************************************************************************************
-  @Test /** 87 **/
-  void checkMoveOmniUp() {
+  @Test /**  **/
+  void checkMoveHEXOMNIUp() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEX OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
+      e.printStackTrace();
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
-    CoordinateImpl coordA = egm.makeCoordinate(4, 4);
+    CoordinateImpl coordA = egm.makeCoordinate(0, 0);
     coordA.setPieceName(PieceName.FROG);
     coordA.setPlayer("Chris");
-    CoordinateImpl coordB = egm.makeCoordinate(6, 4);
+    CoordinateImpl coordB = egm.makeCoordinate(4, 0);
     coordB.setPieceName(null);
     coordB.setPlayer(null);
 
@@ -38,11 +40,11 @@ public class OMNIMovementTests {
     System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 88 **/
-  void checkMoveOmniDown() {
+  @Test /**  **/
+  void checkMoveHEXOMNIDown() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEX OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -65,11 +67,11 @@ public class OMNIMovementTests {
     System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 89 **/
-  void checkMoveOmniLeft() {
+  @Test /**  **/
+  void checkMoveHEXOMNILeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEX OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -92,11 +94,11 @@ public class OMNIMovementTests {
     System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 90 **/
-  void checkMoveOmniRight() {
+  @Test /**  **/
+  void checkMoveHEXOMNIRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEX OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -120,11 +122,11 @@ public class OMNIMovementTests {
   }
 
   //***************************************************************************************************************************
-  @Test /** 91 **/
-  void checkMoveOmniUpRight() {
+  @Test /**  **/
+  void checkMoveHEXOMNIUpRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEX OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -147,11 +149,11 @@ public class OMNIMovementTests {
     System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 92 **/
-  void checkMoveOmniUpLeft() {
+  @Test /**  **/
+  void checkMoveHEXOMNIUpLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEX OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -174,11 +176,11 @@ public class OMNIMovementTests {
     System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 93 **/
-  void checkMoveOmniDownRight() {
+  @Test /**  **/
+  void checkMoveHEXOMNIDownRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEX OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -201,11 +203,11 @@ public class OMNIMovementTests {
     System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 94 **/
-  void checkMoveOmniDownLeft() {
+  @Test /**  **/
+  void checkMoveHEXOMNIDownLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEX OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -228,11 +230,11 @@ public class OMNIMovementTests {
     System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 95 **/
-  void checkMoveOmniUpUpRight() {
+  @Test /**  **/
+  void checkMoveHEXOMNIUpUpRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEX OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -255,11 +257,11 @@ public class OMNIMovementTests {
     System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 96 **/
-  void checkMoveOmniUpUpLeft() {
+  @Test /**  **/
+  void checkMoveHEXOMNIUpUpLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEX OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -282,11 +284,11 @@ public class OMNIMovementTests {
     System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 97 **/
-  void checkMoveOmniDownDownRight() {
+  @Test /**  **/
+  void checkMoveHEXOMNIDownDownRight() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEX OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -309,11 +311,11 @@ public class OMNIMovementTests {
     System.out.println("coordB: " + coordB.getRow() + ", " + coordB.getColumn());
   }
   //***************************************************************************************************************************
-  @Test /** 98 **/
-  void checkMoveOmniDownDownLeft() {
+  @Test /**  **/
+  void checkMoveHEXOMNIDownDownLeft() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/OMNI Configurations/OMNIPositiveTests.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/HEX OMNI Configurations/HEXOMNIPositiveTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }

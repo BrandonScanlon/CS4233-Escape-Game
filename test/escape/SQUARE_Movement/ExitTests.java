@@ -1,8 +1,9 @@
-package escape.builder;
+package escape.SQUARE_Movement;
 
 import escape.CoordinateImpl;
 import escape.EscapeGameManagerImpl;
 import escape.GameStatusImpl;
+import escape.Builder.EscapeGameBuilder;
 import escape.required.EscapePiece;
 import org.junit.jupiter.api.Test;
 

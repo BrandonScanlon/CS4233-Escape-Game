@@ -9,10 +9,10 @@
  *
  * Copyright ©2016-2023 Gary F. Pollice
  *******************************************************************************/
-package master.escape.builder;
+package master.escape.Builder;
 
 import escape.*;
-import escape.builder.*;
+import escape.Builder.*;
 import master.util.*;
 import org.junit.jupiter.api.*;
 

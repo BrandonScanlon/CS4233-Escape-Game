@@ -1,13 +1,10 @@
-package escape.builder;
+package escape.Top_Level_Tests;
 
 // Imports
 //*********************************
 import escape.*;
-import escape.required.Coordinate;
-import escape.required.EscapeException;
-import escape.required.EscapePiece;
+import escape.Builder.EscapeGameBuilder;
 import escape.required.EscapePiece.PieceName;
-import escape.required.LocationType;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,14 +16,14 @@ public class CLevelTests {
   void checkSQUAREXYFinite() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/SQUAREXYFinite.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/C Level Configurations/SQUAREXYFinite.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
-    assertEquals(egm.getGameBoard().getRows(), 14);
-    assertEquals(egm.getGameBoard().getCols(), 24);
+    assertEquals(egm.getGameBoard().getCols(), 14);
+    assertEquals(egm.getGameBoard().getRows(), 24);
   }
 //***************************************************************************************************************************
   @Test
@@ -34,14 +31,15 @@ public class CLevelTests {
   void checkSQUAREXFiniteYInfinite() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/SQUAREXFiniteYInfinite.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/C Level Configurations/SQUAREXFiniteYInfinite.egc").makeGameManager();
     } catch (Exception e){
+      e.printStackTrace();
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
-    assertEquals(10000, egm.getGameBoard().getRows());
-    assertEquals(24, egm.getGameBoard().getCols());
+    assertEquals(10000, egm.getGameBoard().getCols());
+    assertEquals(24, egm.getGameBoard().getRows());
   }
 //***************************************************************************************************************************
   @Test
@@ -49,14 +47,14 @@ public class CLevelTests {
   void checkSQUAREXInfiniteYFinite() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/SQUAREXInfiniteYFinite.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/C Level Configurations/SQUAREXInfiniteYFinite.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
-    assertEquals(50, egm.getGameBoard().getRows());
-    assertEquals(10000, egm.getGameBoard().getCols());
+    assertEquals(50, egm.getGameBoard().getCols());
+    assertEquals(10000, egm.getGameBoard().getRows());
   }
 //***************************************************************************************************************************
   @Test
@@ -64,14 +62,14 @@ public class CLevelTests {
   void checkSQUAREXInfiniteYInfinite() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/SQUAREXYInfinite.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/C Level Configurations/SQUAREXYInfinite.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
-    assertEquals(10000, egm.getGameBoard().getRows());
     assertEquals(10000, egm.getGameBoard().getCols());
+    assertEquals(10000, egm.getGameBoard().getRows());
   }
 
                                   /** All pieces have a default value of 1 **/
@@ -81,7 +79,7 @@ public class CLevelTests {
   void checkPieceDefault1() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/SQUAREXYFinite.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/C Level Configurations/SQUAREXYFinite.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -90,7 +88,7 @@ public class CLevelTests {
     CoordinateImpl coord = new CoordinateImpl(4, 4);
 
     egm.getGameBoard().getPieceTypeDescriptors();
-  egm.getPieceAt(coord).getName();
+    assertNull(egm.getPieceAt(coord));
 
   }
                               /** Distance Attribute Implemented **/
@@ -100,14 +98,14 @@ public class CLevelTests {
   void checkPieceDistanceAttribute() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/SQUAREXYFinite.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/C Level Configurations/SQUAREXYFinite.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
     assertNotNull(egm);
 
     CoordinateImpl coordA = new CoordinateImpl(4, 4);
-    CoordinateImpl coordB = new CoordinateImpl(4, 3);
+    CoordinateImpl coordB = new CoordinateImpl(3, 4);
     CoordinateImpl coordC = new CoordinateImpl(2, 2);
 
     GameStatusImpl gameStatus = new GameStatusImpl();
@@ -118,19 +116,19 @@ public class CLevelTests {
 
     assertFalse(gameStatus.isValidMove());
 
-    assertEquals(egm.move(coordA, coordB).isValidMove(), !gameStatus.isValidMove());
+    assertEquals(egm.move(coordA, coordB).isValidMove(), gameStatus.isValidMove());
     assertEquals(egm.move(coordA, coordC).isValidMove(), gameStatus.isValidMove());
 
     CoordinateImpl coordD = new CoordinateImpl(5, 5);
-    CoordinateImpl coordE = new CoordinateImpl(11, 5);
-    CoordinateImpl coordF = new CoordinateImpl(20, 6);
+    CoordinateImpl coordE = new CoordinateImpl(5, 11);
+    CoordinateImpl coordF = new CoordinateImpl(6, 20);
 
     PieceName pieceName2 = egm.getGameBoard().getBoardLocation(coordD.getRow(), coordD.getColumn()).getPieceName();
     assertEquals(pieceName2, PieceName.DOG);
 
     assertFalse(gameStatus.isValidMove());
 
-    assertEquals(egm.move(coordD, coordE).isValidMove(), !gameStatus.isValidMove());
+    assertEquals(egm.move(coordD, coordE).isValidMove(), gameStatus.isValidMove());
     assertEquals(egm.move(coordD, coordF).isValidMove(), gameStatus.isValidMove());
   }
 
@@ -141,7 +139,7 @@ public class CLevelTests {
   void checkForPieceObstruction() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/SQUAREXYFinite.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/C Level Configurations/SQUAREXYFinite.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -160,9 +158,6 @@ public class CLevelTests {
 
     assertEquals(egm.move(coordA, coordB).isValidMove(), gameStatus.isValidMove());
     assertEquals(egm.move(coordA, coordC).isValidMove(), !gameStatus.isValidMove());
-
-    // Change movement to check for obstacles first, then move if none on path.
-    // Currently, it checks for obstacles while moving and won't go back to its original coordinate
   }
 
 }

@@ -1,4 +1,4 @@
-package escape.builder;
+package escape.Builder;
 
 // Imports
 //*********************************
@@ -20,7 +20,7 @@ public class EscapeGameManagerTest {
   void makeGameObject() {
     EscapeGameManager egm = null;
     try{
-      egm = new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+      egm = new EscapeGameBuilder("configurations/EscapeGameTests.egc").makeGameManager();
     } catch (Exception e){
       e.printStackTrace();
       fail("Exception from escape builder: " + e.getMessage());
@@ -32,7 +32,7 @@ public class EscapeGameManagerTest {
   void makeFullGameObject() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/EscapeGameTests.egc").makeGameManager();
     } catch (Exception e){
       e.printStackTrace();
       fail("Exception from escape builder: " + e.getMessage());
@@ -49,7 +49,7 @@ public class EscapeGameManagerTest {
   void makeTwoByTwoBoard() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/EscapeGameTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -62,7 +62,7 @@ public class EscapeGameManagerTest {
   void makeTwoByTwoBoardFail() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/EscapeGameTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -75,7 +75,7 @@ public class EscapeGameManagerTest {
   void checkCoordinateTypeSquare() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/EscapeGameTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -87,7 +87,7 @@ public class EscapeGameManagerTest {
   void checkCoordinateTypeSquareFail() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/EscapeGameTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -240,7 +240,7 @@ public class EscapeGameManagerTest {
   void checkSQUAREBoardType() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/EscapeGameTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -266,7 +266,7 @@ public class EscapeGameManagerTest {
 //  void checkSQUAREBoardAllCLEAR() {
 //    EscapeGameManagerImpl egm = null;
 //    try{
-//      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+//      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/EscapeGameTests.egc").makeGameManager();
 //    } catch (Exception e){
 //      fail("Exception from escape builder: " + e.getMessage());
 //    }
@@ -308,7 +308,7 @@ public class EscapeGameManagerTest {
   void checkSQUARECoordinateEquals() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/EscapeGameTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }
@@ -488,7 +488,7 @@ public class EscapeGameManagerTest {
   void checkSQUAREMoveLINEAR() {
     EscapeGameManagerImpl egm = null;
     try{
-      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/config1.egc").makeGameManager();
+      egm = (EscapeGameManagerImpl)new EscapeGameBuilder("configurations/EscapeGameTests.egc").makeGameManager();
     } catch (Exception e){
       fail("Exception from escape builder: " + e.getMessage());
     }

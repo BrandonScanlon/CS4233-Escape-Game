@@ -12,7 +12,7 @@
 package master.escape;
 
 import escape.*;
-import escape.builder.*;
+import escape.Builder.*;
 import escape.required.*;
 import master.util.*;
 import org.junit.jupiter.api.*;
