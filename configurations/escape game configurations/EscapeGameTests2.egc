@@ -1,0 +1,17 @@
+Coordinate type: HEX
+xMax : 10
+yMax : 34
+Players : Paul Steven
+
+Locations :
+    (1, 1) CLEAR
+    (4, 4) clear Paul snail
+    (5, 12) exit
+
+Piece Descriptors :
+    SNAIL omni [distance 1]
+    frog omni [distance 3, unblock]
+
+Rules :
+    SCORE 10
+    TURN_LIMIT 20

@@ -23,8 +23,7 @@ package escape.required;
  * You may extend this interface for your internal use, but this is the public interface
  * that all clients will use.
  */
-public interface GameObserver
-{
+public interface GameObserver {
     /**
      * Receive a message from the game
      * @param message

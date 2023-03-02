@@ -11,7 +11,7 @@
  *******************************************************************************/
 package escape.required;
 
-import escape.GameStatusImpl;
+import escape.utils.GameStatusImpl;
 
 /**
  * This interface defines all of the information for a

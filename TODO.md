@@ -4,9 +4,9 @@
 
 ##Tests
 
-###I tested with different .egc files to thoroughly various configurations that are attached with my submission
+###I tested with different .egc files thoroughly with various configurations that are attached with my submission
 
-| **#** | Test                                                                                          | Comments                                                    |
+| **#** | Test                                                                       | Comments                                                    |
 |:-----:|:---------------------------------------------------------------------------|:------------------------------------------------------------|
 |**---**|           **-------------------- TESTS FOR CONFIG 1 --------------------** |**---------------------------------------------------------**|
 |   1   | Build game manager 1, check not null                                       | Create game object                                          |
@@ -145,16 +145,30 @@
 |  123  | Move OMNI to Exit                                                          | Move coordinate on board                                    |
 |  124  | Move DIAGONAL to Exit                                                      | Move coordinate on board                                    |
 |**---**| **-------------------- TESTS FOR FLY --------------------**                |**---------------------------------------------------------**|
-|   00  | Move coordinate FLY - UP                                                   | Move coordinate on board                                    |
-|   00  | Move coordinate FLY - DOWN                                                 | Move coordinate on board                                    |
-|   00  | Move coordinate FLY - LEFT                                                 | Move coordinate on board                                    |
-|   00  | Move coordinate FLY - RIGHT                                                | Move coordinate on board                                    |
-|   00  | Move coordinate FLY - UPRIGHT                                              | Move coordinate on board                                    |
-|   00  | Move coordinate FLY - UPLEFT                                               | Move coordinate on board                                    |
-|   00  | Move coordinate FLY - DOWNRIGHT                                            | Move coordinate on board                                    |
-|   00  | Move coordinate FLY - DOWNLEFT                                             | Move coordinate on board                                    |
-|   00  | Move coordinate FLY - UPUPRIGHT                                            | Move coordinate on board                                    |
-|   00  | Move coordinate FLY - UPUPLEFT                                             | Move coordinate on board                                    |
-|   00  | Move coordinate FLY - DOWNDOWNRIGHT                                        | Move coordinate on board                                    |
-|   00  | Move coordinate FLY - DOWNDOWNLEFT                                         | Move coordinate on board                                    |
-|   00  | Move coordinate FLY - INVALID                                              | Move coordinate on board                                    |
+|  125  | Move coordinate FLY - UP                                                   | Move coordinate on board                                    |
+|  126  | Move coordinate FLY - DOWN                                                 | Move coordinate on board                                    |
+|  127  | Move coordinate FLY - LEFT                                                 | Move coordinate on board                                    |
+|  128  | Move coordinate FLY - RIGHT                                                | Move coordinate on board                                    |
+|  129  | Move coordinate FLY - UPRIGHT                                              | Move coordinate on board                                    |
+|  130  | Move coordinate FLY - UPLEFT                                               | Move coordinate on board                                    |
+|  131  | Move coordinate FLY - DOWNRIGHT                                            | Move coordinate on board                                    |
+|  132  | Move coordinate FLY - DOWNLEFT                                             | Move coordinate on board                                    |
+|  133  | Move coordinate FLY - UPUPRIGHT                                            | Move coordinate on board                                    |
+|  134  | Move coordinate FLY - UPUPLEFT                                             | Move coordinate on board                                    |
+|  135  | Move coordinate FLY - DOWNDOWNRIGHT                                        | Move coordinate on board                                    |
+|  136  | Move coordinate FLY - DOWNDOWNLEFT                                         | Move coordinate on board                                    |
+|  137  | Move coordinate FLY - INVALID                                              | Move coordinate on board                                    |
+|**---**| **-------------------- TESTS FOR C Level Tests --------------------**      |**---------------------------------------------------------**|
+|  138  | Board in finite on both axes                                               | Create a game board                                         |
+|  139  | Board in finite on x axis and infinite on y axis                           | Create a game board                                         |
+|  140  | Board in infinite on x axis and finite on y axis                           | Create a game board                                         |
+|  141  | Board in infinite on both axes                                             | Create a game board                                         |
+|  142  | Distance attribute implemented                                             | Move coordinate on board                                    |
+|  143  | Piece collision avoidance                                                  | Move coordinate on board                                    |
+|**---**| **-------------------- TESTS FOR Full Games --------------------**         |**---------------------------------------------------------**|
+|  144  | Play full game                                                             | Move coordinates on board                                   |
+|  145  | Play full game 2                                                           | Move coordinates on board                                   |
+|  146  | Quick loss                                                                 | Move coordinates on board                                   |
+|  147  | Quick loss 2                                                               | Move coordinates on board                                   |
+|  148  | Quick loss 3                                                               | Move coordinates on board                                   |
+|  149  | Quick loss 4                                                               | Move coordinates on board                                   |
